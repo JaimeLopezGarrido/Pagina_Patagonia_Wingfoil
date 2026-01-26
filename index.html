@@ -1,0 +1,125 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Patagonia Wingfoil | Escuela de Gerónimo Rendon</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-patagonia: #0077b6;
+            --negro-fondo: #0a0a0a;
+            --gris-tarjeta: #1a1a1a;
+            --blanco: #ffffff;
+        }
+        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: var(--negro-fondo); color: var(--blanco); margin: 0; scroll-behavior: smooth; }
+        
+        /* Navegación */
+        nav { background: rgba(0,0,0,0.9); padding: 20px; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #333; display: flex; justify-content: center; gap: 20px; }
+        nav a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 14px; text-transform: uppercase; transition: 0.3s; }
+        nav a:hover { color: var(--azul-patagonia); }
+
+        /* Hero Section */
+        header { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; }
+        header h1 { font-size: 3.5rem; margin-bottom: 10px; }
+        header p { font-size: 1.2rem; color: #ccc; }
+
+        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2.5rem; color: var(--azul-patagonia); margin-bottom: 50px; }
+
+        /* Tarjetas de Clases y Alquiler */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
+        .card { background: var(--gris-tarjeta); padding: 30px; border-radius: 15px; border: 1px solid #333; text-align: center; transition: 0.3s; }
+        .card:hover { border-color: var(--azul-patagonia); transform: translateY(-10px); }
+        .card h3 { font-size: 1.8rem; margin-bottom: 15px; }
+        .price { font-size: 2rem; font-weight: bold; color: var(--azul-patagonia); margin: 20px 0; }
+        .features { list-style: none; padding: 0; color: #aaa; margin-bottom: 30px; line-height: 2; }
+
+        .btn { background: var(--azul-patagonia); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .btn:hover { background: white; color: black; }
+
+        /* Alquiler */
+        .alquiler-item { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #333; }
+
+        /* WhatsApp Button */
+        .wsp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 1000; text-decoration: none; }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#clases">Clases</a>
+    <a href="#alquiler">Alquiler</a>
+    <a href="#equipos">Equipos</a>
+    <a href="#contacto">Contacto</a>
+</nav>
+
+<header>
+    <h1>PATAGONIA WINGFOIL</h1>
+    <p>Aprende a volar con Gerónimo Rendon</p>
+</header>
+
+<section id="clases">
+    <h2>Nuestras Clases</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Bautismo</h3>
+            <div class="price">1 Clase</div>
+            <ul class="features">
+                <li>Duración: 2 horas</li>
+                <li>Equipo completo incluido</li>
+                <li>Teoría y práctica inicial</li>
+            </ul>
+            <a href="https://wa.me/5491112345678" class="btn">RESERVAR</a>
+        </div>
+        <div class="card">
+            <h3>Intermedio</h3>
+            <div class="price">Pack 3 Clases</div>
+            <ul class="features">
+                <li>Total: 6 horas</li>
+                <li>Equipo completo incluido</li>
+                <li>Primeros vuelos en foil</li>
+            </ul>
+            <a href="https://wa.me/5491112345678" class="btn">RESERVAR PACK</a>
+        </div>
+        <div class="card">
+            <h3>Full Course</h3>
+            <div class="price">Pack 5 Clases</div>
+            <ul class="features">
+                <li>Total: 10 horas</li>
+                <li>Equipo completo incluido</li>
+                <li>Autonomía total</li>
+            </ul>
+            <a href="https://wa.me/5491112345678" class="btn">RESERVAR CURSO</a>
+        </div>
+    </div>
+</section>
+
+<section id="alquiler">
+    <h2>Alquiler de Equipo</h2>
+    <div class="card" style="max-width: 600px; margin: 0 auto;">
+        <div class="alquiler-item"><span>1 Hora de Alquiler</span> <strong>Consultar</strong></div>
+        <div class="alquiler-item"><span>Día Completo</span> <strong>Consultar</strong></div>
+        <p style="margin-top:20px; font-size: 0.9rem; color: #777;">* Sujeto a validación de nivel de navegación.</p>
+    </div>
+</section>
+
+<section id="equipos" style="text-align: center;">
+    <h2>Nuestros Equipos</h2>
+    <p>Utilizamos equipos de última generación (F-One, North, Duotone) adaptados para cada nivel.</p>
+</section>
+
+<section id="contacto">
+    <h2>Quiénes Somos</h2>
+    <div style="text-align: center;">
+        <p>Dirigida por <strong>Gerónimo Rendon</strong>, instructor certificado y apasionado por los deportes de viento en la Patagonia.</p>
+        <p>¡Vení a vivir la experiencia Wingfoil!</p>
+    </div>
+</section>
+
+<a href="https://wa.me/5491112345678" class="wsp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
+</a>
+
+</body>
+</html>
