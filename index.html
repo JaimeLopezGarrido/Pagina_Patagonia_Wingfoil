@@ -3,46 +3,70 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Patagonia Wingfoil | Escuela de Gerónimo Rendon</title>
+    <title>Patagonia Wingfoil | Gerónimo Rendón</title>
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
     <style>
         :root {
             --azul-patagonia: #0077b6;
             --negro-fondo: #0a0a0a;
-            --gris-tarjeta: #1a1a1a;
+            --gris-tarjeta: #161616;
             --blanco: #ffffff;
         }
-        body { font-family: 'Segoe UI', Arial, sans-serif; background-color: var(--negro-fondo); color: var(--blanco); margin: 0; scroll-behavior: smooth; }
+        body { font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif; background-color: var(--negro-fondo); color: var(--blanco); margin: 0; scroll-behavior: smooth; }
         
         /* Navegación */
-        nav { background: rgba(0,0,0,0.9); padding: 20px; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #333; display: flex; justify-content: center; gap: 20px; }
-        nav a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 14px; text-transform: uppercase; transition: 0.3s; }
+        nav { background: rgba(0,0,0,0.95); padding: 15px; position: fixed; width: 100%; top: 0; z-index: 1000; border-bottom: 1px solid #222; display: flex; justify-content: center; gap: 30px; }
+        nav a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 13px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; }
         nav a:hover { color: var(--azul-patagonia); }
 
         /* Hero Section */
-        header { height: 80vh; display: flex; flex-direction: column; justify-content: center; align-items: center; text-align: center; background: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1500382017468-9049fed747ef?auto=format&fit=crop&w=1600&q=80'); background-size: cover; background-position: center; }
-        header h1 { font-size: 3.5rem; margin-bottom: 10px; }
-        header p { font-size: 1.2rem; color: #ccc; }
+        header { 
+            height: 70vh; 
+            display: flex; 
+            flex-direction: column; 
+            justify-content: center; 
+            align-items: center; 
+            text-align: center; 
+            /* Reemplaza FONDO_KT.jpg con tu imagen de tablas KT */
+            background: linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.8)), url('FONDO_KT.jpg'); 
+            background-size: cover; 
+            background-position: center; 
+        }
+        header h1 { font-size: 4rem; margin: 0; letter-spacing: 4px; }
 
-        section { padding: 100px 20px; max-width: 1200px; margin: 0 auto; }
-        h2 { text-align: center; font-size: 2.5rem; color: var(--azul-patagonia); margin-bottom: 50px; }
+        section { padding: 80px 20px; max-width: 1000px; margin: 0 auto; }
+        h2 { text-align: center; font-size: 2rem; color: var(--azul-patagonia); margin-bottom: 40px; text-transform: uppercase; letter-spacing: 2px; }
 
-        /* Tarjetas de Clases y Alquiler */
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 30px; }
-        .card { background: var(--gris-tarjeta); padding: 30px; border-radius: 15px; border: 1px solid #333; text-align: center; transition: 0.3s; }
-        .card:hover { border-color: var(--azul-patagonia); transform: translateY(-10px); }
-        .card h3 { font-size: 1.8rem; margin-bottom: 15px; }
-        .price { font-size: 2rem; font-weight: bold; color: var(--azul-patagonia); margin: 20px 0; }
-        .features { list-style: none; padding: 0; color: #aaa; margin-bottom: 30px; line-height: 2; }
+        /* Grid de Clases */
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--gris-tarjeta); padding: 35px; border-radius: 10px; border: 1px solid #222; text-align: center; transition: 0.4s; }
+        .card:hover { border-color: var(--azul-patagonia); }
+        .price { font-size: 1.8rem; font-weight: bold; margin: 20px 0; color: var(--blanco); }
+        .features { list-style: none; padding: 0; color: #888; margin-bottom: 25px; font-size: 15px; line-height: 1.8; }
 
-        .btn { background: var(--azul-patagonia); color: white; padding: 12px 25px; border-radius: 50px; text-decoration: none; font-weight: bold; display: inline-block; transition: 0.3s; }
+        .btn { background: var(--azul-patagonia); color: white; padding: 14px 28px; border-radius: 5px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 14px; transition: 0.3s; }
         .btn:hover { background: white; color: black; }
 
-        /* Alquiler */
-        .alquiler-item { display: flex; justify-content: space-between; padding: 15px; border-bottom: 1px solid #333; }
+        /* Sección Quiénes Somos */
+        .perfil-container { display: flex; align-items: center; gap: 40px; flex-wrap: wrap; justify-content: center; }
+        .foto-gero { width: 250px; height: 250px; border-radius: 50%; object-fit: cover; border: 3px solid var(--azul-patagonia); }
+        .texto-gero { flex: 1; min-width: 300px; font-style: italic; font-size: 1.1rem; line-height: 1.6; color: #ccc; position: relative; }
+        .texto-gero::before { content: '"'; font-size: 4rem; color: var(--azul-patagonia); position: absolute; left: -30px; top: -20px; opacity: 0.5; }
 
-        /* WhatsApp Button */
-        .wsp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 2px 2px 10px rgba(0,0,0,0.5); z-index: 1000; text-decoration: none; }
+        /* Equipos */
+        .equipos-box { text-align: center; background: #111; padding: 40px; border-radius: 10px; }
+        .marca-kt { font-size: 2.5rem; font-weight: 900; color: #fff; margin-bottom: 10px; }
+
+        /* Floating WhatsApp */
+        .wsp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.4); z-index: 1000; text-decoration: none; }
+        
+        .contact-cta { text-align: center; margin-top: 50px; padding: 30px; border-top: 1px solid #222; }
+        .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: underline; }
+
+        @media (max-width: 768px) {
+            header h1 { font-size: 2.5rem; }
+            .perfil-container { text-align: center; }
+        }
     </style>
 </head>
 <body>
@@ -51,73 +75,89 @@
     <a href="#clases">Clases</a>
     <a href="#alquiler">Alquiler</a>
     <a href="#equipos">Equipos</a>
-    <a href="#contacto">Contacto</a>
+    <a href="#nosotros">Nosotros</a>
 </nav>
 
 <header>
     <h1>PATAGONIA WINGFOIL</h1>
-    <p>Aprende a volar con Gerónimo Rendon</p>
 </header>
 
 <section id="clases">
-    <h2>Nuestras Clases</h2>
+    <h2>Clases de Wingfoil</h2>
     <div class="grid">
         <div class="card">
             <h3>Bautismo</h3>
-            <div class="price">1 Clase</div>
+            <div class="price">1 Clase (2hs)</div>
             <ul class="features">
-                <li>Duración: 2 horas</li>
                 <li>Equipo completo incluido</li>
-                <li>Teoría y práctica inicial</li>
+                <li>Primer contacto y teoría</li>
+                <li>Seguridad en el agua</li>
             </ul>
-            <a href="https://wa.me/5491112345678" class="btn">RESERVAR</a>
+            <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
         </div>
         <div class="card">
-            <h3>Intermedio</h3>
+            <h3>Progreso</h3>
             <div class="price">Pack 3 Clases</div>
             <ul class="features">
-                <li>Total: 6 horas</li>
+                <li>6 horas de instrucción</li>
                 <li>Equipo completo incluido</li>
-                <li>Primeros vuelos en foil</li>
+                <li>Técnica de vuelo en foil</li>
             </ul>
-            <a href="https://wa.me/5491112345678" class="btn">RESERVAR PACK</a>
+            <a href="https://wa.me/5492944204675" class="btn">RESERVAR PACK</a>
         </div>
         <div class="card">
-            <h3>Full Course</h3>
+            <h3>Autonomía</h3>
             <div class="price">Pack 5 Clases</div>
             <ul class="features">
-                <li>Total: 10 horas</li>
+                <li>10 horas de instrucción</li>
                 <li>Equipo completo incluido</li>
-                <li>Autonomía total</li>
+                <li>Navegación independiente</li>
             </ul>
-            <a href="https://wa.me/5491112345678" class="btn">RESERVAR CURSO</a>
+            <a href="https://wa.me/5492944204675" class="btn">RESERVAR CURSO</a>
         </div>
     </div>
 </section>
 
 <section id="alquiler">
     <h2>Alquiler de Equipo</h2>
-    <div class="card" style="max-width: 600px; margin: 0 auto;">
-        <div class="alquiler-item"><span>1 Hora de Alquiler</span> <strong>Consultar</strong></div>
-        <div class="alquiler-item"><span>Día Completo</span> <strong>Consultar</strong></div>
-        <p style="margin-top:20px; font-size: 0.9rem; color: #777;">* Sujeto a validación de nivel de navegación.</p>
+    <div class="card" style="max-width: 500px; margin: 0 auto;">
+        <p>Disponemos de equipos para riders con experiencia.</p>
+        <div style="display:flex; justify-content: space-between; padding: 15px 0; border-bottom: 1px solid #333;">
+            <span>Alquiler por Hora</span> <strong>Consultar</strong>
+        </div>
+        <div style="display:flex; justify-content: space-between; padding: 15px 0;">
+            <span>Día Completo</span> <strong>Consultar</strong>
+        </div>
+        <br>
+        <a href="https://wa.me/5492944204675" class="btn">CONSULTAR DISPO</a>
     </div>
 </section>
 
-<section id="equipos" style="text-align: center;">
+<section id="equipos">
     <h2>Nuestros Equipos</h2>
-    <p>Utilizamos equipos de última generación (F-One, North, Duotone) adaptados para cada nivel.</p>
-</section>
-
-<section id="contacto">
-    <h2>Quiénes Somos</h2>
-    <div style="text-align: center;">
-        <p>Dirigida por <strong>Gerónimo Rendon</strong>, instructor certificado y apasionado por los deportes de viento en la Patagonia.</p>
-        <p>¡Vení a vivir la experiencia Wingfoil!</p>
+    <div class="equipos-box">
+        <div class="marca-kt">KT SURFING</div>
+        <p>"Innovación y alto rendimiento: KT es la marca líder en el diseño de tablas y wings, pensada por y para riders que buscan llevar el wingfoil al siguiente nivel."</p>
     </div>
 </section>
 
-<a href="https://wa.me/5491112345678" class="wsp-float" target="_blank">
+<section id="nosotros">
+    <h2>Quiénes Somos</h2>
+    <div class="perfil-container">
+        <img src="FOTO_DE_GERO.jpg" alt="Gerónimo Rendón" class="foto-gero">
+        <div class="texto-gero">
+            "Soy Gerónimo Rendón. Nací y crecí en la Patagonia, rodeado de montañas, viento y frío, así que el contacto con la naturaleza y el deporte siempre fue parte de mi vida. Esquío desde chico y crecí pasando más tiempo afuera que adentro, aprendiendo a moverme en la montaña y a disfrutarla. 
+            Con el tiempo encontré en los deportes de viento algo que me atrapó por completo, y así llegué al wingfoil. Hoy me dedico a compartir lo que más me gusta hacer, acompañando a otros a aprender, progresar y disfrutar este deporte de una manera simple, segura y con buena onda."
+        </div>
+    </div>
+    
+    <div class="contact-cta">
+        <p>¿Tenés alguna duda?</p>
+        <a href="https://wa.me/5492944204675">Escribile a Gero por cualquier duda cliqueando acá!</a>
+    </div>
+</section>
+
+<a href="https://wa.me/5492944204675" class="wsp-float" target="_blank">
     <i class="fab fa-whatsapp"></i>
 </a>
 
