@@ -71,7 +71,112 @@
         .wsp-float { position: fixed; bottom: 20px; right: 20px; background: #25d366; color: white; width: 55px; height: 55px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 30px; box-shadow: 0 4px 15px rgba(0,0,0,0.5); z-index: 1000; text-decoration: none; }
         
         .contact-cta { text-align: center; margin-top: 40px; padding: 30px 15px; background: #080808; border-radius: 15px; }
-        .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: underline; font-size: 1.1rem; word-break: break
+        .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: underline; font-size: 1.1rem; word-break: break-word; }
+
+        /* Media Query para pantallas más grandes (PC) */
+        @media (min-width: 769px) {
+            header h1 { font-size: 4.5rem; }
+            header { background-attachment: fixed; }
+            .kt-section { background-attachment: fixed; padding: 120px 20px; }
+            .marca-kt { font-size: 4rem; }
+            .texto-gero { min-width: 300px; text-align: left; font-size: 1.15rem; }
+            nav a { font-size: 13px; gap: 30px; }
+            .btn { width: auto; }
+            .foto-gero { width: 280px; height: 280px; }
+        }
+    </style>
+</head>
+<body>
+
+<nav>
+    <a href="#clases">Clases</a>
+    <a href="#alquiler">Alquiler</a>
+    <a href="#equipos">Equipos</a>
+    <a href="#nosotros">Nosotros</a>
+</nav>
+
+<header>
+    <h1>PATAGONIA WINGFOIL</h1>
+</header>
+
+<section id="clases">
+    <h2>Clases</h2>
+    <div class="grid">
+        <div class="card">
+            <h3>Bautismo</h3>
+            <div class="price">$60.000</div>
+            <ul class="features">
+                <li>1 Clase (2 horas)</li>
+                <li>Equipo completo incluido</li>
+                <li>Teoría y primer contacto</li>
+            </ul>
+            <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+        </div>
+        <div class="card">
+            <h3>Progreso</h3>
+            <div class="price">$160.000</div>
+            <ul class="features">
+                <li>Pack 3 Clases (6hs total)</li>
+                <li>Equipo completo incluido</li>
+                <li>Técnica de vuelo en foil</li>
+            </ul>
+            <a href="https://wa.me/5492944204675" class="btn">RESERVAR PACK</a>
+        </div>
+        <div class="card" style="border-color: var(--azul-patagonia);">
+            <h3>Autonomía</h3>
+            <div class="price">$280.000</div>
+            <ul class="features">
+                <li>Pack 5 Clases (10hs total)</li>
+                <li>Equipo completo incluido</li>
+                <li>Navegación independiente</li>
+            </ul>
+            <a href="https://wa.me/5492944204675" class="btn">RESERVAR CURSO</a>
+        </div>
+    </div>
+</section>
+
+<section id="alquiler">
+    <h2>Alquiler</h2>
+    <div class="alquiler-card">
+        <div class="alquiler-row">
+            <span>2 Horas</span>
+            <strong>$50.000</strong>
+        </div>
+        <div class="alquiler-row" style="border: none;">
+            <span>Día Completo</span>
+            <strong>$150.000</strong>
+        </div>
+        <p style="text-align: center; color: #666; font-size: 0.8rem; margin-top: 15px;">
+            * El alquiler requiere validación previa de nivel.
+        </p>
+    </div>
+</section>
+
+<div class="kt-section" id="equipos">
+    <div class="marca-kt">KT SURFING</div>
+    <div class="kt-text">
+        "Innovación y alto rendimiento: KT es la marca líder en el diseño de tablas y wings, pensada por y para riders que buscan llevar el wingfoil al siguiente nivel."
+    </div>
+</div>
+
+<section id="nosotros">
+    <h2>Quiénes Somos</h2>
+    <div class="perfil-container">
+        <img src="https://i.postimg.cc/3N0Xg4Sq/Captura-de-pantalla-2026-01-25-a-la(s)-6-18-32-p-m.png" alt="Gerónimo Rendón" class="foto-gero">
+        <div class="texto-gero">
+            "Soy Gerónimo Rendón. Nací y crecí en la Patagonia, rodeado de montañas, viento y frío, así que el contacto con la naturaleza y el deporte siempre fue parte de mi vida. Esquío desde chico y crecí pasando más tiempo afuera que adentro, aprendiendo a moverme en la montaña y a disfrutarla. 
+            Con el tiempo encontré en los deportes de viento algo que me atrapó por completo, y así llegué al wingfoil. Hoy me dedico a compartir lo que más me gusta hacer, acompañando a otros a aprender, progresar y disfrutar este deporte de una manera simple, segura y con buena onda."
+        </div>
+    </div>
+    
+    <div class="contact-cta">
+        <p>¿Tenés alguna duda?</p>
+        <a href="https://wa.me/5492944204675">Escribile a Gero por cualquier duda cliqueando acá!</a>
+    </div>
+</section>
+
+<a href="https://wa.me/5492944204675" class="wsp-float" target="_blank">
+    <i class="fab fa-whatsapp"></i>
 </a>
 
 </body>
