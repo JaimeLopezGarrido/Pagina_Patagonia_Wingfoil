@@ -16,7 +16,6 @@
         }
         body { font-family: 'Inter', sans-serif; background-color: var(--negro-fondo); color: var(--blanco); margin: 0; scroll-behavior: smooth; overflow-x: hidden; }
         
-        /* Navegación - Enlaces Centrados */
         nav { 
             background: rgba(0,0,0,0.95); 
             padding: 15px 25px; 
@@ -30,26 +29,17 @@
             align-items: center;
             box-sizing: border-box;
         }
-        .nav-logo { 
-            font-family: var(--font-logo); 
-            font-style: italic; 
-            color: var(--blanco); 
-            text-transform: uppercase; 
-            font-size: 14px; 
-            letter-spacing: 1px;
-            justify-self: start;
-        }
+        .nav-logo { font-family: var(--font-logo); font-style: italic; color: var(--blanco); text-transform: uppercase; font-size: 14px; letter-spacing: 1px; justify-self: start; }
         .nav-links { display: flex; gap: 20px; justify-self: center; }
         .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0.7; }
         .nav-links a:hover { color: var(--azul-patagonia); opacity: 1; }
 
-        /* Hero Section con Fondo Fijo (Parallax) */
         header { 
             height: 100vh; 
             display: flex; 
             flex-direction: column; 
             justify-content: flex-end; 
-            padding-bottom: 75vh; /* Logo más arriba */
+            padding-bottom: 60vh; 
             align-items: center; 
             text-align: center; 
             background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Znnc06dx/PHOTO-2026-01-19-20-19-04-2.jpg'); 
@@ -59,43 +49,36 @@
             position: relative;
             z-index: 1;
         }
-        .hero-content {
-            will-change: transform;
-            transition: transform 0.1s ease-out;
-        }
+        .hero-content { will-change: transform; transition: transform 0.1s ease-out; }
         header h1 { font-family: var(--font-logo); font-style: italic; font-size: 3.5rem; margin: 0; letter-spacing: -1px; line-height: 0.9; text-transform: uppercase; }
         header p { font-family: var(--font-logo); font-style: italic; font-size: 1.2rem; margin-top: 10px; color: #888; letter-spacing: 4px; text-transform: uppercase; }
 
-        main {
-            position: relative;
-            background-color: var(--negro-fondo);
-            z-index: 2;
-        }
+        main { position: relative; background-color: var(--negro-fondo); z-index: 2; }
 
         section { padding: 120px 20px; max-width: 1200px; margin: 0 auto; }
         h2 { font-family: var(--font-logo); font-style: italic; text-align: center; font-size: 2.2rem; color: var(--blanco); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px; }
+        h3 { font-family: var(--font-logo); font-style: italic; font-size: 1.5rem; color: var(--azul-patagonia); margin-top: 40px; border-bottom: 1px solid #222; padding-bottom: 10px; text-transform: uppercase; }
 
+        /* Clases Grid */
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
         .card { background: var(--gris-tarjeta); padding: 40px 25px; border-radius: 15px; border: 1px solid #222; text-align: center; transition: 0.4s; }
         .card:hover { border-color: var(--azul-patagonia); }
         .card.featured { border-color: var(--azul-patagonia); }
-        
         .price { font-family: var(--font-logo); font-style: italic; font-size: 2.2rem; margin: 15px 0; color: var(--blanco); }
-        .features { list-style: none; padding: 0; color: #777; margin-bottom: 30px; font-size: 14px; line-height: 1.8; }
 
-        .btn { background: var(--azul-patagonia); color: white; padding: 15px 30px; border-radius: 2px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 12px; transition: 0.3s; text-transform: uppercase; letter-spacing: 1px; width: 90%; }
-        .btn:hover { background: white; color: black; }
+        /* Equipos Styles */
+        .item-nombre { font-weight: bold; font-size: 1.2rem; margin: 20px 0 10px 0; display: block; }
+        .img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px; }
+        .img-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; border: 1px solid #1a1a1a; transition: 0.3s; }
+        .img-grid img:hover { border-color: var(--azul-patagonia); }
 
         .alquiler-card { background: #000; padding: 40px; border-radius: 15px; border: 1px solid #1a1a1a; max-width: 700px; margin: 0 auto; }
         .alquiler-row { display: flex; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid #111; font-size: 1.1rem; }
         .alquiler-row strong { font-family: var(--font-logo); font-style: italic; color: var(--azul-patagonia); font-size: 1.4rem; }
 
-        .kt-section { 
+        .kt-section-intro { 
             background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://i.postimg.cc/pr5fDhG7/Captura-de-pantalla-2026-01-25-a-la(s)-6-18-15-p-m.png');
-            background-size: cover;
-            background-position: center;
-            padding: 150px 20px;
-            text-align: center;
+            background-size: cover; padding: 100px 20px; text-align: center; border-bottom: 1px solid #111;
         }
         .marca-kt { font-family: var(--font-logo); font-style: italic; font-size: 4rem; color: #fff; margin-bottom: 20px; letter-spacing: 10px; }
 
@@ -104,17 +87,17 @@
         .texto-gero { flex: 1; min-width: 300px; font-style: italic; font-size: 1.1rem; line-height: 1.8; color: #999; }
 
         .wsp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 1000; text-decoration: none; }
-        
+        .btn { background: var(--azul-patagonia); color: white; padding: 15px 30px; border-radius: 2px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 12px; transition: 0.3s; text-transform: uppercase; width: 90%; }
         .contact-cta { text-align: center; margin-top: 60px; padding: 60px 20px; background: #050505; border: 1px solid #111; border-radius: 15px; }
         .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: none; font-size: 1.3rem; font-family: var(--font-logo); font-style: italic; }
 
         @media (max-width: 768px) {
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
-            .nav-links { gap: 10px; }
             header h1 { font-size: 2.2rem; }
-            header p { font-size: 0.8rem; }
             header { background-attachment: scroll; padding-bottom: 45vh; } 
+            .img-grid { grid-template-columns: 1fr; }
+            .img-grid img { height: auto; }
             .perfil-container { text-align: center; }
             .texto-gero { text-align: center; min-width: 100%; }
         }
@@ -144,12 +127,12 @@
     <section id="clases">
         <h2>Tarifas Clases</h2>
         <div class="grid">
-            <div class="card"><h3>1 Clase</h3><div class="price">$100.000</div><ul class="features"><li>Sesión de 2 horas</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-            <div class="card"><h3>3 Clases</h3><div class="price">$270.000</div><ul class="features"><li>Pack 3 sesiones</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-            <div class="card featured"><h3>7 Clases</h3><div class="price">$600.000</div><ul class="features"><li>Pack Evolution</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-            <div class="card"><h3>10 Clases</h3><div class="price">$780.000</div><ul class="features"><li>Pack Intensivo</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-            <div class="card"><h3>12 Clases</h3><div class="price">$900.000</div><ul class="features"><li>Pack Advance</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-            <div class="card"><h3>15 Clases</h3><div class="price">$1.100.000</div><ul class="features"><li>Full Experience</li><li>Máximo Nivel</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card"><h3>1 Clase</h3><div class="price">$100.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card"><h3>3 Clases</h3><div class="price">$270.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card featured"><h3>7 Clases</h3><div class="price">$600.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card"><h3>10 Clases</h3><div class="price">$780.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card"><h3>12 Clases</h3><div class="price">$900.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card"><h3>15 Clases</h3><div class="price">$1.100.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
         </div>
     </section>
 
@@ -163,10 +146,51 @@
         </div>
     </section>
 
-    <div class="kt-section" id="equipos">
+    <div class="kt-section-intro">
         <div class="marca-kt">KT SURFING</div>
-        <p class="kt-text">"Innovación y alto rendimiento: KT es la marca líder en el diseño de tablas y wings."</p>
     </div>
+
+    <section id="equipos">
+        <h2>Nuestros Equipos</h2>
+        
+        <h3>TABLAS</h3>
+        <span class="item-nombre">KT Drifter 115L 6’3</span>
+        <div class="img-grid">
+            <img src="https://i.postimg.cc/26dGgH7f/Whats-App-Image-2026-01-27-at-09-37-32.jpg" alt="KT Drifter">
+            <img src="https://i.postimg.cc/63VcFHfs/Whats-App-Image-2026-01-27-at-09-37-32-(1).jpg" alt="KT Drifter">
+            <img src="https://i.postimg.cc/26dGgH7N/Whats-App-Image-2026-01-27-at-09-37-33.jpg" alt="KT Drifter">
+        </div>
+
+        <span class="item-nombre">KT Ginxu Pro Carbon 2 (46L 4’1 | 62L 5’3)</span>
+        <div class="img-grid">
+            <img src="https://i.postimg.cc/kGfcgBHT/Whats-App-Image-2026-01-27-at-09-37-58-(1).jpg" alt="KT Ginxu">
+            <img src="https://i.postimg.cc/T1C93psz/Whats-App-Image-2026-01-27-at-09-37-58-(2).jpg" alt="KT Ginxu">
+            <img src="https://i.postimg.cc/mk8wgtqG/Whats-App-Image-2026-01-27-at-09-37-58-(3).jpg" alt="KT Ginxu">
+            <img src="https://i.postimg.cc/5yn326GW/Whats-App-Image-2026-01-27-at-09-37-59.jpg" alt="KT Ginxu">
+            <img src="https://i.postimg.cc/WzXn1hKV/Whats-App-Image-2026-01-27-at-09-37-59-(1).jpg" alt="KT Ginxu">
+        </div>
+
+        <span class="item-nombre">KT Wing Drifter Flight 155L 7’3</span>
+        <div class="img-grid">
+            <img src="https://i.postimg.cc/NfCDh2mR/2023-KT-Surfing-Wing-Drifter-Flight-2x.jpg" alt="KT Flight">
+        </div>
+
+        <h3>WINGS</h3>
+        <span class="item-nombre">KT Wing Astro (3, 4 y 5 mts)</span>
+        <div class="img-grid">
+            <img src="https://i.postimg.cc/NfCDh2mR/2023-KT-Surfing-Wing-Drifter-Flight-2x.jpg" alt="KT Astro">
+        </div>
+
+        <h3>FOILS</h3>
+        <span class="item-nombre">KT INSTINCT 1450</span>
+        <div class="img-grid">
+            <img src="https://i.postimg.cc/JhM5Z3WT/foils.webp" alt="KT Instinct">
+        </div>
+        <span class="item-nombre">KT NOMAD 700</span>
+        <div class="img-grid">
+            <img src="https://i.postimg.cc/RCyLNjCP/foil-nomad.webp" alt="KT Nomad">
+        </div>
+    </section>
 
     <section id="nosotros">
         <h2>Quiénes Somos</h2>
