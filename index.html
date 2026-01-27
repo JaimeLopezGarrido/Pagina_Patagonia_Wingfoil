@@ -26,7 +26,7 @@
             z-index: 1000; 
             border-bottom: 1px solid #1a1a1a; 
             display: grid; 
-            grid-template-columns: 1fr auto 1fr; /* Divide en 3 partes para centrar perfecto */
+            grid-template-columns: 1fr auto 1fr; 
             align-items: center;
             box-sizing: border-box;
         }
@@ -43,6 +43,7 @@
         .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0.7; }
         .nav-links a:hover { color: var(--azul-patagonia); opacity: 1; }
 
+        /* Hero Section con Fondo Fijo (Parallax) */
         header { 
             height: 100vh; 
             display: flex; 
@@ -51,12 +52,27 @@
             padding-bottom: 15vh; 
             align-items: center; 
             text-align: center; 
-            background: linear-gradient(rgba(0,0,0,0.1), rgba(0,0,0,0.6)), url('https://i.postimg.cc/50R5Yq3Z/Captura-de-pantalla-2026-01-25-a-la(s)-6-18-00-p-m.png'); 
+            background: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Znnc06dx/PHOTO-2026-01-19-20-19-04-2.jpg'); 
             background-size: cover; 
             background-position: center; 
+            background-attachment: fixed; /* Esto hace que la foto se quede quieta */
+            position: relative;
+            z-index: 1;
+        }
+        /* Contenedor del título para el movimiento parallax */
+        .hero-content {
+            will-change: transform;
+            transition: transform 0.1s ease-out;
         }
         header h1 { font-family: var(--font-logo); font-style: italic; font-size: 3.5rem; margin: 0; letter-spacing: -1px; line-height: 0.9; text-transform: uppercase; }
         header p { font-family: var(--font-logo); font-style: italic; font-size: 1.2rem; margin-top: 10px; color: #888; letter-spacing: 4px; text-transform: uppercase; }
+
+        /* Contenido principal que tapa al header */
+        main {
+            position: relative;
+            background-color: var(--negro-fondo);
+            z-index: 2;
+        }
 
         section { padding: 120px 20px; max-width: 1200px; margin: 0 auto; }
         h2 { font-family: var(--font-logo); font-style: italic; text-align: center; font-size: 2.2rem; color: var(--blanco); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px; }
@@ -79,6 +95,7 @@
         .kt-section { 
             background: linear-gradient(rgba(0,0,0,0.9), rgba(0,0,0,0.9)), url('https://i.postimg.cc/pr5fDhG7/Captura-de-pantalla-2026-01-25-a-la(s)-6-18-15-p-m.png');
             background-size: cover;
+            background-position: center;
             padding: 150px 20px;
             text-align: center;
         }
@@ -99,6 +116,7 @@
             .nav-links { gap: 10px; }
             header h1 { font-size: 2.2rem; }
             header p { font-size: 0.8rem; }
+            header { background-attachment: scroll; } /* Desactivamos fixed en móvil por compatibilidad */
             .perfil-container { text-align: center; }
             .texto-gero { text-align: center; min-width: 100%; }
         }
@@ -114,55 +132,71 @@
         <a href="#equipos">Equipos</a>
         <a href="#nosotros">Nosotros</a>
     </div>
-    <div style="width: 140px;" class="pc-only"></div> </nav>
+    <div style="width: 140px;" class="pc-only"></div>
+</nav>
 
 <header>
-    <h1>PATAGONIA<br>WINGFOIL</h1>
-    <p>RIDE THE WIND</p>
+    <div class="hero-content" id="parallax-text">
+        <h1>PATAGONIA<br>WINGFOIL</h1>
+        <p>RIDE THE WIND</p>
+    </div>
 </header>
 
-<section id="clases">
-    <h2>Tarifas Clases</h2>
-    <div class="grid">
-        <div class="card"><h3>1 Clase</h3><div class="price">$100.000</div><ul class="features"><li>Sesión de 2 horas</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-        <div class="card"><h3>3 Clases</h3><div class="price">$270.000</div><ul class="features"><li>Pack 3 sesiones</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-        <div class="card featured"><h3>7 Clases</h3><div class="price">$600.000</div><ul class="features"><li>Pack Evolution</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-        <div class="card"><h3>10 Clases</h3><div class="price">$780.000</div><ul class="features"><li>Pack Intensivo</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-        <div class="card"><h3>12 Clases</h3><div class="price">$900.000</div><ul class="features"><li>Pack Advance</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-        <div class="card"><h3>15 Clases</h3><div class="price">$1.100.000</div><ul class="features"><li>Full Experience</li><li>Máximo Nivel</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-    </div>
-</section>
-
-<section id="alquiler">
-    <h2>Alquiler de Equipo</h2>
-    <div class="alquiler-card">
-        <div class="alquiler-row"><span>1 Hora</span><strong>$75.000</strong></div>
-        <div class="alquiler-row"><span>Día Completo</span><strong>$250.000</strong></div>
-        <div class="alquiler-row" style="border:none;"><span>Varios Días</span><strong>A charlar</strong></div>
-        <div style="color:#555; text-align:center; font-size:0.9rem; margin-top:20px;">✔ Tabla | ✔ Wing | ✔ Leash</div>
-    </div>
-</section>
-
-<div class="kt-section" id="equipos">
-    <div class="marca-kt">KT SURFING</div>
-    <p class="kt-text">"Innovación y alto rendimiento: KT es la marca líder en el diseño de tablas y wings."</p>
-</div>
-
-<section id="nosotros">
-    <h2>Quiénes Somos</h2>
-    <div class="perfil-container">
-        <img src="https://i.postimg.cc/3N0Xg4Sq/Captura-de-pantalla-2026-01-25-a-la(s)-6-18-32-p-m.png" class="foto-gero">
-        <div class="texto-gero">
-            "Soy Gerónimo Rendón. Nací y crecí en la Patagonia, rodeado de montañas, viento y frío, así que el contacto con la naturaleza y el deporte siempre fue parte de mi vida. Esquío desde chico y crecí pasando más tiempo afuera que adentro, aprendiendo a moverme en la montaña y a disfrutarla.
-            Con el tiempo encontré en los deportes de viento algo que me atrapó por completo, y así llegué al wingfoil. Hoy me dedico a compartir lo que más me gusta hacer, acompañando a otros a aprender, progresar y disfrutar este deporte de una manera simple, segura y con buena onda."
+<main>
+    <section id="clases">
+        <h2>Tarifas Clases</h2>
+        <div class="grid">
+            <div class="card"><h3>1 Clase</h3><div class="price">$100.000</div><ul class="features"><li>Sesión de 2 horas</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card"><h3>3 Clases</h3><div class="price">$270.000</div><ul class="features"><li>Pack 3 sesiones</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card featured"><h3>7 Clases</h3><div class="price">$600.000</div><ul class="features"><li>Pack Evolution</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card"><h3>10 Clases</h3><div class="price">$780.000</div><ul class="features"><li>Pack Intensivo</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card"><h3>12 Clases</h3><div class="price">$900.000</div><ul class="features"><li>Pack Advance</li><li>Equipo incluido</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card"><h3>15 Clases</h3><div class="price">$1.100.000</div><ul class="features"><li>Full Experience</li><li>Máximo Nivel</li></ul><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
         </div>
+    </section>
+
+    <section id="alquiler">
+        <h2>Alquiler de Equipo</h2>
+        <div class="alquiler-card">
+            <div class="alquiler-row"><span>1 Hora</span><strong>$75.000</strong></div>
+            <div class="alquiler-row"><span>Día Completo</span><strong>$250.000</strong></div>
+            <div class="alquiler-row" style="border:none;"><span>Varios Días</span><strong>A charlar</strong></div>
+            <div style="color:#555; text-align:center; font-size:0.9rem; margin-top:20px;">✔ Tabla | ✔ Wing | ✔ Leash</div>
+        </div>
+    </section>
+
+    <div class="kt-section" id="equipos">
+        <div class="marca-kt">KT SURFING</div>
+        <p class="kt-text">"Innovación y alto rendimiento: KT es la marca líder en el diseño de tablas y wings."</p>
     </div>
-    <div class="contact-cta">
-        <a href="https://wa.me/5492944204675">Escribile a Gero por WhatsApp cliqueando acá!</a>
-    </div>
-</section>
+
+    <section id="nosotros">
+        <h2>Quiénes Somos</h2>
+        <div class="perfil-container">
+            <img src="https://i.postimg.cc/3N0Xg4Sq/Captura-de-pantalla-2026-01-25-a-la(s)-6-18-32-p-m.png" class="foto-gero">
+            <div class="texto-gero">
+                "Soy Gerónimo Rendón. Nací y crecí en la Patagonia, rodeado de montañas, viento y frío, así que el contacto con la naturaleza y el deporte siempre fue parte de mi vida. Esquío desde chico y crecí pasando más tiempo afuera que adentro, aprendiendo a moverme en la montaña y a disfrutarla.
+                Con el tiempo encontré en los deportes de viento algo que me atrapó por completo, y así llegué al wingfoil. Hoy me dedico a compartir lo que más me gusta hacer, acompañando a otros a aprender, progresar y disfrutar este deporte de una manera simple, segura y con buena onda."
+            </div>
+        </div>
+        <div class="contact-cta">
+            <a href="https://wa.me/5492944204675">Escribile a Gero por WhatsApp cliqueando acá!</a>
+        </div>
+    </section>
+</main>
 
 <a href="https://wa.me/5492944204675" class="wsp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
+
+<script>
+    // Script para el movimiento suave del título (Parallax)
+    window.addEventListener('scroll', function() {
+        const scrollValue = window.scrollY;
+        const parallaxText = document.getElementById('parallax-text');
+        
+        // El factor 0.3 controla la velocidad del movimiento del texto
+        parallaxText.style.transform = 'translateY(' + (scrollValue * 0.3) + 'px)';
+    });
+</script>
 
 </body>
 </html>
