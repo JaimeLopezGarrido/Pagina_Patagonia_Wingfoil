@@ -34,36 +34,40 @@
         .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0.7; }
         .nav-links a:hover { color: var(--azul-patagonia); opacity: 1; }
 
-        /* Hero & Separadores Parallax */
+        /* Estructura Parallax Optimizada para Móvil */
         header, .parallax-divider { 
+            position: relative;
             height: 100vh; 
+            width: 100%;
             display: flex; 
             flex-direction: column; 
             align-items: center; 
-            text-align: center; 
-            background-size: cover; 
-            background-position: center; 
-            background-attachment: fixed; 
-            position: relative;
-            z-index: 1;
+            overflow: hidden;
+            background-color: #000;
         }
 
-        header { 
-            justify-content: flex-end; 
-            padding-bottom: 60vh; 
+        /* Capa de imagen fija que funciona en todos los dispositivos */
+        header::before, .parallax-divider::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+            z-index: -1;
+        }
+
+        header { justify-content: flex-end; padding-bottom: 60vh; }
+        header::before { 
             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Znnc06dx/PHOTO-2026-01-19-20-19-04-2.jpg'); 
         }
 
-        .parallax-divider {
-            height: 60vh;
-            filter: grayscale(100%);
-        }
+        .parallax-divider { height: 60vh; filter: grayscale(100%); }
+        .divider-1::before { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
+        .divider-2::before { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
+        .divider-3::before { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg'); }
 
-        .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
-        .divider-2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
-        .divider-3 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg'); }
-
-        .hero-content { will-change: transform; transition: transform 0.1s ease-out; }
+        .hero-content { will-change: transform; transition: transform 0.1s ease-out; position: relative; z-index: 2; }
         header h1 { font-family: var(--font-logo); font-style: italic; font-size: 3.5rem; margin: 0; letter-spacing: -1px; line-height: 0.9; text-transform: uppercase; }
         header p { font-family: var(--font-logo); font-style: italic; font-size: 1.2rem; margin-top: 10px; color: #888; letter-spacing: 4px; text-transform: uppercase; }
 
@@ -82,7 +86,6 @@
         .item-nombre { font-weight: bold; font-size: 1.2rem; margin: 20px 0 10px 0; display: block; }
         .img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px; }
         .img-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; border: 1px solid #1a1a1a; transition: 0.3s; }
-        .img-grid.wing-img img { height: 300px; object-fit: cover; }
         .img-grid.foil-img img { height: 450px; object-fit: cover; background: #050505; }
         .img-grid img:hover { border-color: var(--azul-patagonia); }
 
@@ -103,10 +106,15 @@
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
             header h1 { font-size: 2.2rem; }
-            /* Se ajusta background-attachment para evitar el zoom excesivo en móvil */
-            header, .parallax-divider { background-attachment: scroll !important; background-size: cover; } 
-            header { padding-bottom: 45vh; }
             
+            /* Solución Zoom: En móvil desactivamos attachment fixed para evitar el error del navegador */
+            header::before, .parallax-divider::before { 
+                background-attachment: scroll !important; 
+            }
+            header { padding-bottom: 45vh; }
+            .parallax-divider { height: 40vh; }
+            
+            /* Equipos horizontales */
             .img-grid { 
                 display: flex; 
                 overflow-x: auto; 
@@ -176,7 +184,6 @@
 
     <section id="equipos">
         <h2>Nuestros Equipos</h2>
-        
         <div style="text-align: center; margin-bottom: 50px;">
             <div style="font-family: var(--font-logo); font-style: italic; font-size: 2.5rem; text-transform: uppercase;">KT SURFING</div>
             <div style="font-size: 1.2rem; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-top: 5px;">Marca líder a nivel mundial</div>
@@ -251,7 +258,7 @@
     window.addEventListener('scroll', function() {
         const scrollValue = window.scrollY;
         const parallaxText = document.getElementById('parallax-text');
-        parallaxText.style.transform = 'translateY(' + (scrollValue * 0.3) + 'px)';
+        if(parallaxText) parallaxText.style.transform = 'translateY(' + (scrollValue * 0.3) + 'px)';
     });
 </script>
 
