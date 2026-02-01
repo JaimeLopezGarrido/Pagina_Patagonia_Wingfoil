@@ -34,7 +34,6 @@
         .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0.7; }
         .nav-links a:hover { color: var(--azul-patagonia); opacity: 1; }
 
-        /* Hero & Separadores - FIX PARA CELULAR */
         header, .parallax-divider { 
             height: 100vh; 
             display: flex; 
@@ -44,7 +43,7 @@
             background-size: cover; 
             background-position: center; 
             background-repeat: no-repeat;
-            background-attachment: fixed; /* Funciona en PC */
+            background-attachment: fixed; 
             position: relative;
             z-index: 1;
         }
@@ -75,10 +74,11 @@
         h3 { font-family: var(--font-logo); font-style: italic; font-size: 1.5rem; color: var(--azul-patagonia); margin-top: 40px; border-bottom: 1px solid #222; padding-bottom: 10px; text-transform: uppercase; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card { background: var(--gris-tarjeta); padding: 40px 25px; border-radius: 15px; border: 1px solid #222; text-align: center; transition: 0.4s; }
+        .card { background: var(--gris-tarjeta); padding: 40px 25px; border-radius: 15px; border: 1px solid #222; text-align: center; transition: 0.4s; display: flex; flex-direction: column; justify-content: space-between; }
         .card:hover { border-color: var(--azul-patagonia); }
         .card.featured { border-color: var(--azul-patagonia); }
         .price { font-family: var(--font-logo); font-style: italic; font-size: 2.2rem; margin: 15px 0; color: var(--blanco); }
+        .card p { color: #888; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; }
 
         .item-nombre { font-weight: bold; font-size: 1.2rem; margin: 20px 0 10px 0; display: block; }
         .img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px; }
@@ -95,38 +95,19 @@
         .texto-gero { flex: 1; min-width: 300px; font-style: italic; font-size: 1.1rem; line-height: 1.8; color: #999; }
 
         .wsp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 1000; text-decoration: none; }
-        .btn { background: var(--azul-patagonia); color: white; padding: 15px 30px; border-radius: 2px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 12px; transition: 0.3s; text-transform: uppercase; width: 90%; }
+        .btn { background: var(--azul-patagonia); color: white; padding: 15px 30px; border-radius: 2px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 12px; transition: 0.3s; text-transform: uppercase; width: 90%; align-self: center; }
         .contact-cta { text-align: center; margin-top: 60px; padding: 60px 20px; background: #050505; border: 1px solid #111; border-radius: 15px; }
         .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: none; font-size: 1.3rem; font-family: var(--font-logo); font-style: italic; }
 
-        /* AJUSTES CELULAR */
         @media (max-width: 768px) {
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
             header h1 { font-size: 2.2rem; }
-            
-            /* Solución al zoom: Desactivar fixed solo en móvil para que la foto se vea normal */
-            header, .parallax-divider { 
-                background-attachment: scroll !important; 
-                height: 50vh !important; 
-            }
+            header, .parallax-divider { background-attachment: scroll !important; height: 50vh !important; }
             header { padding-bottom: 20vh; height: 100vh !important; }
-
-            /* Equipos uno al lado del otro */
-            .img-grid { 
-                display: flex; 
-                overflow-x: auto; 
-                gap: 10px;
-                padding-bottom: 15px;
-                scroll-snap-type: x mandatory;
-            }
-            .img-grid img { 
-                flex: 0 0 75%; 
-                height: 250px; 
-                scroll-snap-align: start;
-            }
+            .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
+            .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
             .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
-
             .perfil-container { text-align: center; }
             .texto-gero { text-align: center; min-width: 100%; }
         }
@@ -154,14 +135,47 @@
 
 <main>
     <section id="clases">
-        <h2>Tarifas Clases</h2>
+        <h2>Tarifas Clases (1 Hora)</h2>
         <div class="grid">
-            <div class="card"><h3>1 Clase</h3><div class="price">$100.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-            <div class="card"><h3>3 Clases</h3><div class="price">$270.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-            <div class="card featured"><h3>7 Clases</h3><div class="price">$600.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-            <div class="card"><h3>10 Clases</h3><div class="price">$780.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-            <div class="card"><h3>12 Clases</h3><div class="price">$900.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
-            <div class="card"><h3>15 Clases</h3><div class="price">$1.100.000</div><a href="https://wa.me/5492944204675" class="btn">RESERVAR</a></div>
+            <div class="card">
+                <h3>🚤 Bautismo</h3>
+                <div class="price">$100.000</div>
+                <p>Ideal para tu primer contacto. Realizá tus primeros despegues de forma segura con apoyo de embarcación.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+            <div class="card">
+                <h3>🌊 Pack Iniciación</h3>
+                <div class="price">$270.000</div>
+                <p>3 clases para ganar confianza, entender la técnica y tener tus primeras sensaciones reales sobre la tabla.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+            <div class="card featured">
+                <h3>🔥 Progresión</h3>
+                <div class="price">$600.000</div>
+                <p>7 clases pensadas para avanzar en serio. Vas a mejorar estabilidad, control y disfrutar sesiones más largas.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+            <div class="card">
+                <h3>⚡ Evolución</h3>
+                <div class="price">$780.000</div>
+                <p>10 clases para consolidar la técnica y lograr mayor independencia y seguridad en el agua.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+            <div class="card">
+                <h3>🏄 Dominio</h3>
+                <div class="price">$900.000</div>
+                <p>12 clases para alcanzar un nivel sólido, con control total en distintas condiciones de viento.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+            <div class="card">
+                <h3>🏆 Experto</h3>
+                <div class="price">$1.100.000</div>
+                <p>15 clases para llevar tu nivel al máximo y entrenar con continuidad profesional.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:50px; color:#aaa; font-style:italic;">
+            ✨ Paquetes personalizados: armamos un plan a medida según tus objetivos con descuentos exclusivos.
         </div>
     </section>
 
