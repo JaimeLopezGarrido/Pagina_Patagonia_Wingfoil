@@ -50,13 +50,13 @@
 
         header { 
             justify-content: flex-end; 
-            padding-bottom: 60vh; 
+            padding-bottom: 75vh; /* Ajustado para estar más arriba */
             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Znnc06dx/PHOTO-2026-01-19-20-19-04-2.jpg'); 
         }
 
         .parallax-divider {
             height: 60vh;
-            filter: grayscale(100%);
+            filter: none; /* Eliminado el blanco y negro */
         }
 
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
@@ -104,7 +104,7 @@
             .nav-logo { font-size: 11px; justify-self: center; }
             header h1 { font-size: 2.2rem; }
             header, .parallax-divider { background-attachment: scroll !important; height: 50vh !important; }
-            header { padding-bottom: 20vh; height: 100vh !important; }
+            header { padding-bottom: 35vh !important; height: 100vh !important; } /* Ajustado para móvil */
             .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
             .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
             .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
