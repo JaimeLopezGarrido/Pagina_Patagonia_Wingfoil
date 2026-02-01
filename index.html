@@ -34,40 +34,37 @@
         .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0.7; }
         .nav-links a:hover { color: var(--azul-patagonia); opacity: 1; }
 
-        /* Estructura Parallax Optimizada para Móvil */
+        /* Hero & Separadores - FIX PARA CELULAR */
         header, .parallax-divider { 
-            position: relative;
             height: 100vh; 
-            width: 100%;
             display: flex; 
             flex-direction: column; 
             align-items: center; 
-            overflow: hidden;
-            background-color: #000;
+            text-align: center; 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-attachment: fixed; /* Funciona en PC */
+            position: relative;
+            z-index: 1;
         }
 
-        /* Capa de imagen fija que funciona en todos los dispositivos */
-        header::before, .parallax-divider::before {
-            content: "";
-            position: absolute;
-            top: 0; left: 0; width: 100%; height: 100%;
-            background-size: cover;
-            background-position: center;
-            background-attachment: fixed;
-            z-index: -1;
-        }
-
-        header { justify-content: flex-end; padding-bottom: 60vh; }
-        header::before { 
+        header { 
+            justify-content: flex-end; 
+            padding-bottom: 60vh; 
             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Znnc06dx/PHOTO-2026-01-19-20-19-04-2.jpg'); 
         }
 
-        .parallax-divider { height: 60vh; filter: grayscale(100%); }
-        .divider-1::before { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
-        .divider-2::before { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
-        .divider-3::before { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg'); }
+        .parallax-divider {
+            height: 60vh;
+            filter: grayscale(100%);
+        }
 
-        .hero-content { will-change: transform; transition: transform 0.1s ease-out; position: relative; z-index: 2; }
+        .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
+        .divider-2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
+        .divider-3 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg'); }
+
+        .hero-content { will-change: transform; transition: transform 0.1s ease-out; }
         header h1 { font-family: var(--font-logo); font-style: italic; font-size: 3.5rem; margin: 0; letter-spacing: -1px; line-height: 0.9; text-transform: uppercase; }
         header p { font-family: var(--font-logo); font-style: italic; font-size: 1.2rem; margin-top: 10px; color: #888; letter-spacing: 4px; text-transform: uppercase; }
 
@@ -102,26 +99,26 @@
         .contact-cta { text-align: center; margin-top: 60px; padding: 60px 20px; background: #050505; border: 1px solid #111; border-radius: 15px; }
         .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: none; font-size: 1.3rem; font-family: var(--font-logo); font-style: italic; }
 
+        /* AJUSTES CELULAR */
         @media (max-width: 768px) {
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
             header h1 { font-size: 2.2rem; }
             
-            /* Solución Zoom: En móvil desactivamos attachment fixed para evitar el error del navegador */
-            header::before, .parallax-divider::before { 
+            /* Solución al zoom: Desactivar fixed solo en móvil para que la foto se vea normal */
+            header, .parallax-divider { 
                 background-attachment: scroll !important; 
+                height: 50vh !important; 
             }
-            header { padding-bottom: 45vh; }
-            .parallax-divider { height: 40vh; }
-            
-            /* Equipos horizontales */
+            header { padding-bottom: 20vh; height: 100vh !important; }
+
+            /* Equipos uno al lado del otro */
             .img-grid { 
                 display: flex; 
                 overflow-x: auto; 
-                scroll-snap-type: x mandatory;
-                -webkit-overflow-scrolling: touch;
                 gap: 10px;
                 padding-bottom: 15px;
+                scroll-snap-type: x mandatory;
             }
             .img-grid img { 
                 flex: 0 0 75%; 
