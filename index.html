@@ -1,119 +1,336 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
-    <title>Patagonia Wingfoil | Gerónimo Rendón</title>
-    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
-    <style>
-        :root {
-            --azul-patagonia: #0077b6;
-            --negro-fondo: #0a0a0a;
-            --gris-tarjeta: #000000;
-            --blanco: #ffffff;
-            --font-logo: 'Exo 2', sans-serif;
-        }
-        body { font-family: 'Inter', sans-serif; background-color: var(--negro-fondo); color: var(--blanco); margin: 0; scroll-behavior: smooth; overflow-x: hidden; }
-        
-        nav { 
-            background: rgba(0,0,0,0.95); 
-            padding: 15px 25px; 
-            position: fixed; 
-            width: 100%; 
-            top: 0; 
-            z-index: 1000; 
-            border-bottom: 1px solid #1a1a1a; 
-            display: grid; 
-            grid-template-columns: 1fr auto 1fr; 
-            align-items: center;
-            box-sizing: border-box;
-        }
-        .nav-logo { font-family: var(--font-logo); font-style: italic; color: var(--blanco); text-transform: uppercase; font-size: 14px; letter-spacing: 1px; justify-self: start; }
-        .nav-links { display: flex; gap: 20px; justify-self: center; }
-        .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0.7; }
-        .nav-links a:hover { color: var(--azul-patagonia); opacity: 1; }
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Patagonia Wingfoil | Gerónimo Rendón</title>
 
-        header, .parallax-divider { 
-            min-height: 100vh; 
-            display: flex; 
-            flex-direction: column; 
-            align-items: center; 
-            text-align: center; 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat;
-            position: relative;
-            z-index: 1;
-        }
+<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
 
-        /* PARALLAX SOLO DESKTOP */
-        @media (min-width: 769px) {
-            header,
-            .parallax-divider {
-                background-attachment: fixed;
-            }
-        }
+<style>
 
-        header { 
-            justify-content: flex-end; 
-            padding-bottom: 0;
-            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png'); 
-        }
+:root {
+--azul-patagonia: #0077b6;
+--negro-fondo: #0a0a0a;
+--gris-tarjeta: #000000;
+--blanco: #ffffff;
+--font-logo: 'Exo 2', sans-serif;
+}
 
-        .parallax-divider {
-            min-height: 60vh;
-            filter: none;
-        }
+body{
+font-family:'Inter',sans-serif;
+background-color:var(--negro-fondo);
+color:var(--blanco);
+margin:0;
+scroll-behavior:smooth;
+}
 
-        .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
-        .divider-2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
-        .divider-3 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg'); }
+/* NAV */
 
-        .hero-content { will-change: transform; transition: transform 0.1s ease-out; }
-        header h1 { font-family: var(--font-logo); font-style: italic; font-size: 3.5rem; margin: 0; letter-spacing: -1px; line-height: 0.9; text-transform: uppercase; }
-        header p { font-family: var(--font-logo); font-style: italic; font-size: 1.2rem; margin-top: 10px; color: #888; letter-spacing: 4px; text-transform: uppercase; }
+nav{
+background:rgba(0,0,0,0.95);
+padding:15px 25px;
+position:fixed;
+width:100%;
+top:0;
+z-index:1000;
+border-bottom:1px solid #1a1a1a;
+display:grid;
+grid-template-columns:1fr auto 1fr;
+align-items:center;
+box-sizing:border-box;
+}
 
-        main { position: relative; background-color: var(--negro-fondo); z-index: 2; }
+.nav-logo{
+font-family:var(--font-logo);
+font-style:italic;
+text-transform:uppercase;
+font-size:14px;
+letter-spacing:1px;
+}
 
-        section { padding: 120px 20px; max-width: 1200px; margin: 0 auto; }
-        h2 { font-family: var(--font-logo); font-style: italic; text-align: center; font-size: 2.2rem; color: var(--blanco); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px; }
-        h3 { font-family: var(--font-logo); font-style: italic; font-size: 1.5rem; color: var(--azul-patagonia); margin-top: 40px; border-bottom: 1px solid #222; padding-bottom: 10px; text-transform: uppercase; }
+.nav-links{
+display:flex;
+gap:20px;
+justify-self:center;
+}
 
-        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
-        .card { background: var(--gris-tarjeta); padding: 40px 25px; border-radius: 15px; border: 1px solid #222; text-align: center; transition: 0.4s; display: flex; flex-direction: column; justify-content: space-between; }
-        .card:hover { border-color: var(--azul-patagonia); }
-        .card.featured { border-color: var(--azul-patagonia); }
-        .price { font-family: var(--font-logo); font-style: italic; font-size: 2.2rem; margin: 15px 0; color: var(--blanco); }
-        .card p { color: #888; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; }
+.nav-links a{
+color:#fff;
+text-decoration:none;
+font-weight:bold;
+font-size:11px;
+text-transform:uppercase;
+letter-spacing:1px;
+opacity:.7;
+transition:.3s;
+}
 
-        .item-nombre { font-weight: bold; font-size: 1.2rem; margin: 20px 0 10px 0; display: block; }
-        .img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px; }
-        .img-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; border: 1px solid #1a1a1a; transition: 0.3s; }
-        .img-grid.foil-img img { height: 450px; object-fit: cover; background: #050505; }
-        .img-grid img:hover { border-color: var(--azul-patagonia); }
+.nav-links a:hover{
+color:var(--azul-patagonia);
+opacity:1;
+}
 
-        .alquiler-card { background: #000; padding: 40px; border-radius: 15px; border: 1px solid #1a1a1a; max-width: 700px; margin: 0 auto; }
-        .alquiler-row { display: flex; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid #111; font-size: 1.1rem; }
-        .alquiler-row strong { font-family: var(--font-logo); font-style: italic; color: var(--azul-patagonia); font-size: 1.4rem; }
+/* HERO + PARALLAX */
 
-        .perfil-container { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; justify-content: center; }
-        .foto-gero { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; border: 2px solid #222; }
-        .texto-gero { flex: 1; min-width: 300px; font-style: italic; font-size: 1.1rem; line-height: 1.8; color: #999; }
+header,
+.parallax-divider{
+min-height:100vh;
+display:flex;
+flex-direction:column;
+align-items:center;
+text-align:center;
+background-size:cover;
+background-position:center;
+background-repeat:no-repeat;
+background-attachment:fixed;
+position:relative;
+}
 
-        .wsp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 1000; text-decoration: none; }
-        .btn { background: var(--azul-patagonia); color: white; padding: 15px 30px; border-radius: 2px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 12px; transition: 0.3s; text-transform: uppercase; width: 90%; align-self: center; }
-        .contact-cta { text-align: center; margin-top: 60px; padding: 60px 20px; background: #050505; border: 1px solid #111; border-radius: 15px; }
-        .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: none; font-size: 1.3rem; font-family: var(--font-logo); font-style: italic; }
+header{
+justify-content:flex-end;
+background-image:
+linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.5)),
+url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png');
+}
 
-        @media (max-width: 768px) {
-            header,
-            .parallax-divider {
-                background-attachment: scroll;
-                min-height: 70vh;
-            }
-        }
-    </style>
+.parallax-divider{
+min-height:60vh;
+}
+
+.divider-1{
+background-image:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg');
+}
+
+.divider-2{
+background-image:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg');
+}
+
+.divider-3{
+background-image:
+linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
+url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg');
+}
+
+/* TEXT */
+
+.hero-content{
+transition:transform .1s ease-out;
+}
+
+header h1{
+font-family:var(--font-logo);
+font-style:italic;
+font-size:3.5rem;
+margin:0;
+line-height:.9;
+text-transform:uppercase;
+}
+
+header p{
+font-family:var(--font-logo);
+font-style:italic;
+font-size:1.2rem;
+margin-top:10px;
+color:#888;
+letter-spacing:4px;
+}
+
+/* SECTIONS */
+
+main{
+position:relative;
+background:#0a0a0a;
+}
+
+section{
+padding:120px 20px;
+max-width:1200px;
+margin:auto;
+}
+
+h2{
+font-family:var(--font-logo);
+font-style:italic;
+text-align:center;
+font-size:2.2rem;
+margin-bottom:60px;
+letter-spacing:2px;
+}
+
+.grid{
+display:grid;
+grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
+gap:25px;
+}
+
+.card{
+background:#000;
+padding:40px 25px;
+border-radius:15px;
+border:1px solid #222;
+text-align:center;
+transition:.4s;
+display:flex;
+flex-direction:column;
+}
+
+.card:hover{
+border-color:var(--azul-patagonia);
+}
+
+.price{
+font-family:var(--font-logo);
+font-style:italic;
+font-size:2.2rem;
+margin:15px 0;
+}
+
+.card p{
+color:#888;
+}
+
+.btn{
+background:var(--azul-patagonia);
+color:#fff;
+padding:15px 30px;
+border-radius:2px;
+text-decoration:none;
+font-weight:bold;
+font-size:12px;
+text-transform:uppercase;
+margin-top:auto;
+}
+
+/* WHATSAPP */
+
+.wsp-float{
+position:fixed;
+bottom:30px;
+right:30px;
+background:#25d366;
+width:60px;
+height:60px;
+border-radius:50%;
+display:flex;
+align-items:center;
+justify-content:center;
+font-size:32px;
+color:white;
+text-decoration:none;
+z-index:1000;
+}
+
+/* 📱 MOBILE FIX REAL */
+
+@media (max-width:768px){
+
+header,
+.parallax-divider{
+background-attachment:scroll;
+min-height:75vh;
+}
+
+header h1{
+font-size:2.4rem;
+}
+
+}
+
+</style>
 </head>
+
 <body>
+
+<nav>
+<div class="nav-logo">Patagonia Wingfoil</div>
+
+<div class="nav-links">
+<a href="#clases">Clases</a>
+<a href="#alquiler">Alquiler</a>
+<a href="#equipos">Equipos</a>
+<a href="#nosotros">Nosotros</a>
+</div>
+
+<div style="width:140px;"></div>
+</nav>
+
+<header>
+<div class="hero-content" id="parallax-text">
+<h1>PATAGONIA<br>WINGFOIL</h1>
+<p>RIDE THE WIND</p>
+</div>
+</header>
+
+<main>
+
+<section id="clases">
+
+<h2>Tarifas Clases</h2>
+
+<p style="text-align:center;margin-top:-10px;margin-bottom:30px;color:#666;">
+Todas las clases incluyen traje neoprene, equipo completo y embarcación.
+</p>
+
+<div class="grid">
+
+<div class="card">
+<h3>🚤 Bautismo</h3>
+<div class="price">$100.000</div>
+<p><strong>1 hora</strong></p>
+<p>Primeros despegues seguros con apoyo de embarcación.</p>
+<a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+</div>
+
+<div class="card">
+<h3>🌊 Pack Iniciación</h3>
+<div class="price">$270.000</div>
+<p><strong>3 horas</strong></p>
+<p>Confianza, técnica y primeras sensaciones reales.</p>
+<a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+</div>
+
+<div class="card">
+<h3>🔥 Progresión</h3>
+<div class="price">$600.000</div>
+<p><strong>7 horas</strong></p>
+<p>Más estabilidad, control y sesiones más largas.</p>
+<a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+</div>
+
+</div>
+
+</section>
+
+<div class="parallax-divider divider-1"></div>
+
+</main>
+
+<a href="https://wa.me/5492944204675" class="wsp-float">
+<i class="fab fa-whatsapp"></i>
+</a>
+
+<script>
+
+window.addEventListener('scroll',()=>{
+
+const scroll=window.scrollY;
+const text=document.getElementById('parallax-text');
+
+if(text){
+text.style.transform=`translateY(${scroll*0.3}px)`;
+}
+
+});
+
+</script>
+
+</body>
+</html>
+
 
