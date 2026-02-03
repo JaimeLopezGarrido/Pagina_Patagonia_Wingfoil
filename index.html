@@ -35,7 +35,7 @@
         .nav-links a:hover { color: var(--azul-patagonia); opacity: 1; }
 
         header, .parallax-divider { 
-            height: 100vh; 
+            min-height: 100vh; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
@@ -43,20 +43,27 @@
             background-size: cover; 
             background-position: center; 
             background-repeat: no-repeat;
-            background-attachment: fixed; 
             position: relative;
             z-index: 1;
         }
 
+        /* PARALLAX SOLO DESKTOP */
+        @media (min-width: 769px) {
+            header,
+            .parallax-divider {
+                background-attachment: fixed;
+            }
+        }
+
         header { 
             justify-content: flex-end; 
-            padding-bottom: 0; /* Ajustado para estar más arriba */
+            padding-bottom: 0;
             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png'); 
         }
 
         .parallax-divider {
-            height: 60vh;
-            filter: none; /* Eliminado el blanco y negro */
+            min-height: 60vh;
+            filter: none;
         }
 
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
@@ -100,186 +107,13 @@
         .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: none; font-size: 1.3rem; font-family: var(--font-logo); font-style: italic; }
 
         @media (max-width: 768px) {
-
-    header,
-    .parallax-divider {
-        background-attachment: scroll !important;
-        background-position: center;
-        background-size: cover;
-        min-height: 60vh;
-    }
-
-}
+            header,
+            .parallax-divider {
+                background-attachment: scroll;
+                min-height: 70vh;
+            }
+        }
     </style>
 </head>
 <body>
-
-<nav>
-    <div class="nav-logo">Patagonia Wingfoil</div>
-    <div class="nav-links">
-        <a href="#clases">Clases</a>
-        <a href="#alquiler">Alquiler</a>
-        <a href="#equipos">Equipos</a>
-        <a href="#nosotros">Nosotros</a>
-    </div>
-    <div style="width: 140px;" class="pc-only"></div>
-</nav>
-
-<header>
-    <div class="hero-content" id="parallax-text">
-        <h1>PATAGONIA<br>WINGFOIL</h1>
-        <p>RIDE THE WIND</p>
-    </div>
-</header>
-
-<main>
-    <section id="clases">
-        <h2>Tarifas Clases</h2>
-        <p style="text-align:center; margin-top:-10px; margin-bottom:30px; color:#666;">
-            Todas las clases incluyen traje neoprene, equipo completo y embarcación.
-        </p>
-        <div class="grid">
-            <div class="card">
-                <h3>🚤 Bautismo</h3>
-                <div class="price">$100.000</div>
-                <p><strong>1 hora</strong></p>
-                <p>Primeros despegues de forma segura con apoyo de embarcación.</p>
-                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
-            </div>
-            <div class="card">
-                <h3>🌊 Pack Iniciación</h3>
-                <div class="price">$270.000</div>
-                <p><strong>3 horas</strong></p>
-                <p>Ganá confianza, entendé la técnica y tené tus primeras sensaciones reales sobre la tabla.</p>
-                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
-            </div>
-            <div class="card featured">
-                <h3>🔥 Progresión</h3>
-                <div class="price">$600.000</div>
-                <p><strong>7 horas</strong></p>
-                <p>Avanzá en serio, mejorá tu estabilidad y control, y disfrutá sesiones más largas.</p>
-                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
-            </div>
-            <div class="card">
-                <h3>⚡ Evolución</h3>
-                <div class="price">$780.000</div>
-                <p><strong>10 horas</strong></p>
-                <p>Consolidá la técnica, lográ mayor independencia y ganá seguridad en el agua.</p>
-                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
-            </div>
-            <div class="card">
-                <h3>🏄 Dominio</h3>
-                <div class="price">$900.000</div>
-                <p><strong>12 horas</strong></p>
-                <p>Alcanzá un nivel sólido, tené control total en distintas condiciones de viento.</p>
-                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
-            </div>
-            <div class="card">
-                <h3>🏆 Experto</h3>
-                <div class="price">$1.100.000</div>
-                <p><strong>15 horas</strong></p>
-                <p>Llevá tu nivel al máximo y entrená con continuidad profesional.</p>
-                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
-            </div>
-        </div>
-        <div style="text-align:center; margin-top:50px; color:#aaa; font-style:italic;">
-            Paquetes personalizados: armamos un plan a medida según tus objetivos con descuentos exclusivos.
-        </div>
-    </section>
-
-    <div class="parallax-divider divider-1"></div>
-
-    <section id="alquiler">
-        <h2>Alquiler de Equipo</h2>
-        <div class="alquiler-card">
-            <div class="alquiler-row"><span>1 Hora</span><strong>$75.000</strong></div>
-            <div class="alquiler-row"><span>Día Completo</span><strong>$250.000</strong></div>
-            <div class="alquiler-row" style="border:none;"><span>Varios Días</span><strong>A charlar</strong></div>
-            <div style="color:#555; text-align:center; font-size:0.9rem; margin-top:20px;">✔ Tabla | ✔ Wing | ✔ Leash</div>
-        </div>
-    </section>
-
-    <div class="parallax-divider divider-3"></div>
-
-    <section id="equipos">
-        <h2>Nuestros Equipos</h2>
-        <div style="text-align: center; margin-bottom: 50px;">
-            <div style="font-family: var(--font-logo); font-style: italic; font-size: 2.5rem; text-transform: uppercase;">KT SURFING</div>
-            <div style="font-size: 1.2rem; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-top: 5px;">Marca líder a nivel mundial</div>
-        </div>
-        
-        <h3>TABLAS</h3>
-        <span class="item-nombre">KT Drifter 115L 6’3</span>
-        <div class="img-grid">
-            <img src="https://i.postimg.cc/nM8hgMCR/drifter-4-const-2x.webp" alt="KT Drifter 1">
-            <img src="https://i.postimg.cc/V5ykp5dV/drifter-4-highlight-5.webp" alt="KT Drifter 2">
-            <img src="https://i.postimg.cc/14x324f7/drifter-4-shape-2x.webp" alt="KT Drifter 3">
-        </div>
-
-        <span class="item-nombre">KT Ginxu Pro Carbon 2 (46L 4’1 | 62L 5’3)</span>
-        <div class="img-grid">
-            <img src="https://i.postimg.cc/kGfcgBHT/Whats-App-Image-2026-01-27-at-09-37-58-(1).jpg" alt="KT Ginxu">
-            <img src="https://i.postimg.cc/T1C93psz/Whats-App-Image-2026-01-27-at-09-37-58-(2).jpg" alt="KT Ginxu">
-            <img src="https://i.postimg.cc/mk8wgtqG/Whats-App-Image-2026-01-27-at-09-37-58-(3).jpg" alt="KT Ginxu">
-        </div>
-
-        <span class="item-nombre">KT Wing Drifter Flight 155L 7’3</span>
-        <div class="img-grid">
-            <img src="https://i.postimg.cc/SR9y6qgF/2023-wing-drifter-flight-product1-2x.jpg" alt="KT Flight 1">
-            <img src="https://i.postimg.cc/BbFqTsmG/2023-wing-drifter-flight-product2-2x.jpg" alt="KT Flight 2">
-            <img src="https://i.postimg.cc/BbFqTsm0/2023-wing-drifter-flight-product3-2x.jpg" alt="KT Flight 3">
-        </div>
-
-        <h3>WINGS</h3>
-        <span class="item-nombre">KT Wing Astro (3, 4 y 5 mts)</span>
-        <div class="img-grid">
-            <img src="https://i.postimg.cc/htH0vFCV/wing.webp" alt="KT Astro 1">
-            <img src="https://i.postimg.cc/xCy5cbSt/astro-desc.webp" alt="KT Astro 2">
-            <img src="https://i.postimg.cc/50qg6FMg/astro-outline-2x.webp" alt="KT Astro 3">
-        </div>
-
-        <h3>FOILS</h3>
-        <span class="item-nombre">KT NOMAD 700</span>
-        <div class="img-grid foil-img">
-            <img src="https://i.postimg.cc/SxCMSb49/nomad-agility-2x.webp" alt="KT Nomad 1">
-            <img src="https://i.postimg.cc/RZKHSxmH/nomad-assembly-2x.webp" alt="KT Nomad 2">
-            <img src="https://i.postimg.cc/sg7hjCzQ/nomad-desc.webp" alt="KT Nomad 3">
-        </div>
-
-        <span class="item-nombre">KT INSTINCT 1450</span>
-        <div class="img-grid foil-img">
-            <img src="https://i.postimg.cc/g0p6rtkr/instinct-agility-2x.webp" alt="KT Instinct 1">
-            <img src="https://i.postimg.cc/YS7mjDqr/instinct-desc.webp" alt="KT Instinct 2">
-            <img src="https://i.postimg.cc/KYbg4pvj/instinct-pairings-2x.webp" alt="KT Instinct 3">
-        </div>
-    </section>
-
-    <div class="parallax-divider divider-2"></div>
-
-    <section id="nosotros">
-        <h2>Quiénes Somos</h2>
-        <div class="perfil-container">
-            <img src="https://i.postimg.cc/3N0Xg4Sq/Captura-de-pantalla-2026-01-25-a-la(s)-6-18-32-p-m.png" class="foto-gero">
-            <div class="texto-gero">
-                "Soy Gerónimo Rendón. Nací y crecí en la Patagonia, rodeado de montañas, viento y frío, así que el contacto con la naturaleza y el deporte siempre fue parte de mi vida. Esquío desde chico y crecí pasando más tiempo afuera que adentro, aprendiendo a moverme en la montaña y a disfrutarla.
-                Con el tiempo encontré en los deportes de viento algo que me atrapó por completo, y así llegué al wingfoil. Hoy me dedico a compartir lo que más me gusta hacer, acompañando a otros a aprender, progresar y disfrutar este deporte de una manera simple, segura y con buena onda."
-            </div>
-        </div>
-        <div class="contact-cta">
-            <a href="https://wa.me/5492944204675">¿Tenes alguna duda? <br>Escribinos por WhatsApp cliqueando acá!</a>
-        </div>
-    </section>
-</main>
-
-<a href="https://wa.me/5492944204675" class="wsp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
-
-<script>
-    window.addEventListener('scroll', function() {
-        const scrollValue = window.scrollY;
-        const parallaxText = document.getElementById('parallax-text');
-        if(parallaxText) parallaxText.style.transform = 'translateY(' + (scrollValue * 0.3) + 'px)';
-    });
-</script>
-
-</body>
-</html>
+...
