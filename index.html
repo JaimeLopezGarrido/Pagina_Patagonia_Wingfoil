@@ -100,17 +100,53 @@
         .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: none; font-size: 1.3rem; font-family: var(--font-logo); font-style: italic; }
 
         @media (max-width: 768px) {
-            nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
-            .nav-logo { font-size: 11px; justify-self: center; }
-            header h1 { font-size: 2.2rem; }
-            header, .parallax-divider { background-attachment: scroll !important; height: 50vh !important; }
-            header { padding-bottom: 35vh !important; height: 100vh !important; } /* Ajustado para móvil */
-            .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
-            .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
-            .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
-            .perfil-container { text-align: center; }
-            .texto-gero { text-align: center; min-width: 100%; }
-        }
+    nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
+    .nav-logo { font-size: 11px; justify-self: center; }
+    header h1 { font-size: 2.2rem; }
+
+    header, .parallax-divider {
+        background: none !important;
+        position: relative;
+        overflow: hidden;
+    }
+
+    header::before,
+    .parallax-divider::before {
+        content: "";
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100vw;
+        height: 100vh;
+        background-size: cover;
+        background-position: center;
+        z-index: -1;
+    }
+
+    header::before {
+        background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png');
+    }
+
+    .divider-1::before {
+        background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg');
+    }
+
+    .divider-2::before {
+        background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg');
+    }
+
+    .divider-3::before {
+        background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg');
+    }
+
+    header { padding-bottom: 35vh !important; height: 100vh !important; }
+
+    .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
+    .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
+    .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
+    .perfil-container { text-align: center; }
+    .texto-gero { text-align: center; min-width: 100%; }
+}
     </style>
 </head>
 <body>
