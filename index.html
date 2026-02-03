@@ -38,8 +38,9 @@
             align-items: center;
             box-sizing: border-box;
         }
-        /* 2) En la pestaña de la pagina, arriba a la izquierda donde dice Patagonia Wingfoil Quiero Que aparezca el logo */
-        .nav-logo img { height: 40px; justify-self: start; }
+
+        /* 2) Logo en la barra de navegación */
+        .nav-logo-img { height: 45px; width: auto; display: block; }
         
         .nav-links { display: flex; gap: 20px; justify-self: center; }
         .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0.7; }
@@ -60,23 +61,17 @@
         }
 
         header { 
-            justify-content: flex-end; 
-            padding-bottom: 20vh; /* Ajustado para que el logo centrado respire */
+            justify-content: center; /* Logo centrado verticalmente */
             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png'); 
         }
 
-        .parallax-divider {
-            height: 60vh;
-            filter: none;
-        }
+        /* 3) Logo en la portada */
+        .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; }
 
+        .parallax-divider { height: 60vh; filter: none; }
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
         .divider-2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
         .divider-3 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg'); }
-
-        .hero-content { will-change: transform; transition: transform 0.1s ease-out; }
-        /* Estilo para la imagen del título en portada */
-        .hero-logo { max-width: 80%; height: auto; width: 450px; }
 
         main { position: relative; background-color: var(--negro-fondo); z-index: 2; }
 
@@ -112,10 +107,10 @@
 
         @media (max-width: 768px) {
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
-            .nav-logo img { height: 30px; }
+            .nav-logo-img { height: 35px; }
             header, .parallax-divider { background-attachment: scroll !important; height: 50vh !important; }
-            header { padding-bottom: 0; height: 100vh !important; justify-content: center; }
-            .hero-logo { width: 280px; }
+            header { height: 100vh !important; }
+            .hero-logo-img { width: 300px; }
             .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
             .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
             .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
@@ -128,7 +123,7 @@
 
 <nav>
     <div class="nav-logo">
-        <img src="https://i.postimg.cc/m2S9jxJQ/Logo-Pat-Wingfoil-Picsart-Background-Remover.png" alt="Patagonia Wingfoil Logo">
+        <img src="https://i.postimg.cc/m2S9jxJQ/Logo-Pat-Wingfoil-Picsart-Background-Remover.png" class="nav-logo-img" alt="Logo">
     </div>
     <div class="nav-links">
         <a href="#clases">Clases</a>
@@ -140,9 +135,7 @@
 </nav>
 
 <header>
-    <div class="hero-content" id="parallax-text">
-        <img src="https://i.postimg.cc/m2S9jxJQ/Logo-Pat-Wingfoil-Picsart-Background-Remover.png" class="hero-logo" alt="Patagonia Wingfoil">
-    </div>
+    <img src="https://i.postimg.cc/m2S9jxJQ/Logo-Pat-Wingfoil-Picsart-Background-Remover.png" id="parallax-text" class="hero-logo-img" alt="Patagonia Wingfoil">
 </header>
 
 <main>
