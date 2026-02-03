@@ -47,6 +47,7 @@
             font-size: 14px; 
             letter-spacing: 1px;
             justify-self: start;
+            text-decoration: none; /* Asegura que el enlace no tenga subrayado */
         }
         
         .nav-links { display: flex; gap: 20px; justify-self: center; }
@@ -112,7 +113,6 @@
         .contact-cta { text-align: center; margin-top: 60px; padding: 60px 20px; background: #050505; border: 1px solid #111; border-radius: 15px; }
         .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: none; font-size: 1.3rem; font-family: var(--font-logo); font-style: italic; }
 
-        /* Estilo para el Copyright */
         footer { padding: 40px 20px; text-align: center; border-top: 1px solid #111; background-color: var(--negro-fondo); }
         .copyright { font-size: 10px; color: #444; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
 
@@ -133,7 +133,7 @@
 <body>
 
 <nav>
-    <div class="nav-logo">PATAGONIA WINGFOIL</div>
+    <a href="#" class="nav-logo">PATAGONIA WINGFOIL</a>
     <div class="nav-links">
         <a href="#clases">Clases</a>
         <a href="#alquiler">Alquiler</a>
@@ -143,7 +143,7 @@
     <div style="width: 140px;" class="pc-only"></div>
 </nav>
 
-<header>
+<header id="inicio">
     <img src="https://i.postimg.cc/TYg3Trfx/Logo-Palabra-sin-fondo.png" id="parallax-text" class="hero-logo-img" alt="Patagonia Wingfoil">
 </header>
 
