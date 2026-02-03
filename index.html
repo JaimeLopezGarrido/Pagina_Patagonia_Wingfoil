@@ -60,11 +60,12 @@
         }
 
         header { 
-            justify-content: center; 
+            justify-content: flex-end; /* Alineamos al fondo para usar el padding como control */
+            padding-bottom: 15vh; /* Bajamos el logo de portada */
             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png'); 
         }
 
-        .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; }
+        .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; }
 
         .parallax-divider { height: 60vh; filter: none; }
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
@@ -107,8 +108,8 @@
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo-img { height: 35px; }
             header, .parallax-divider { background-attachment: scroll !important; height: 50vh !important; }
-            header { height: 100vh !important; }
-            .hero-logo-img { width: 300px; }
+            header { height: 100vh !important; padding-bottom: 10vh !important; }
+            .hero-logo-img { width: 300px; margin-top: 0; }
             .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
             .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
             .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
