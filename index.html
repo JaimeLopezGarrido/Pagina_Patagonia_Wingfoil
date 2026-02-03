@@ -39,7 +39,15 @@
             box-sizing: border-box;
         }
 
-        .nav-logo-img { height: 45px; width: auto; display: block; }
+        .nav-logo { 
+            font-family: var(--font-logo); 
+            font-style: italic; 
+            color: var(--blanco); 
+            text-transform: uppercase; 
+            font-size: 14px; 
+            letter-spacing: 1px;
+            justify-self: start;
+        }
         
         .nav-links { display: flex; gap: 20px; justify-self: center; }
         .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0.7; }
@@ -60,12 +68,12 @@
         }
 
         header { 
-            justify-content: flex-end; /* Alineamos al fondo para usar el padding como control */
-            padding-bottom: 15vh; /* Bajamos el logo de portada */
+            justify-content: flex-end; 
+            padding-bottom: 15vh; 
             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png'); 
         }
 
-        .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; }
+        .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; }
 
         .parallax-divider { height: 60vh; filter: none; }
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
@@ -106,10 +114,10 @@
 
         @media (max-width: 768px) {
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
-            .nav-logo-img { height: 35px; }
+            .nav-logo { font-size: 11px; justify-self: center; }
             header, .parallax-divider { background-attachment: scroll !important; height: 50vh !important; }
             header { height: 100vh !important; padding-bottom: 10vh !important; }
-            .hero-logo-img { width: 300px; margin-top: 0; }
+            .hero-logo-img { width: 300px; }
             .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
             .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
             .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
@@ -121,9 +129,7 @@
 <body>
 
 <nav>
-    <div class="nav-logo">
-        <img src="https://i.postimg.cc/TYg3Trfx/Logo-Palabra-sin-fondo.png" class="nav-logo-img" alt="Logo">
-    </div>
+    <div class="nav-logo">PATAGONIA WINGFOIL</div>
     <div class="nav-links">
         <a href="#clases">Clases</a>
         <a href="#alquiler">Alquiler</a>
