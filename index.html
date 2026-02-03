@@ -1,333 +1,285 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Patagonia Wingfoil | Gerónimo Rendón</title>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>Patagonia Wingfoil | Gerónimo Rendón</title>
+    <link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+    <style>
+        :root {
+            --azul-patagonia: #0077b6;
+            --negro-fondo: #0a0a0a;
+            --gris-tarjeta: #000000;
+            --blanco: #ffffff;
+            --font-logo: 'Exo 2', sans-serif;
+        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--negro-fondo); color: var(--blanco); margin: 0; scroll-behavior: smooth; overflow-x: hidden; }
+        
+        nav { 
+            background: rgba(0,0,0,0.95); 
+            padding: 15px 25px; 
+            position: fixed; 
+            width: 100%; 
+            top: 0; 
+            z-index: 1000; 
+            border-bottom: 1px solid #1a1a1a; 
+            display: grid; 
+            grid-template-columns: 1fr auto 1fr; 
+            align-items: center;
+            box-sizing: border-box;
+        }
+        .nav-logo { font-family: var(--font-logo); font-style: italic; color: var(--blanco); text-transform: uppercase; font-size: 14px; letter-spacing: 1px; justify-self: start; }
+        .nav-links { display: flex; gap: 20px; justify-self: center; }
+        .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0.7; }
+        .nav-links a:hover { color: var(--azul-patagonia); opacity: 1; }
 
-<link href="https://fonts.googleapis.com/css2?family=Exo+2:ital,wght@1,900&family=Inter:wght@400;700&display=swap" rel="stylesheet">
-<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+        header, .parallax-divider { 
+            height: 100vh; 
+            display: flex; 
+            flex-direction: column; 
+            align-items: center; 
+            text-align: center; 
+            background-size: cover; 
+            background-position: center; 
+            background-repeat: no-repeat;
+            background-attachment: fixed; 
+            position: relative;
+            z-index: 1;
+        }
 
-<style>
+        header { 
+            justify-content: flex-end; 
+            padding-bottom: 0; /* Ajustado para estar más arriba */
+            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png'); 
+        }
 
-:root {
---azul-patagonia: #0077b6;
---negro-fondo: #0a0a0a;
---gris-tarjeta: #000000;
---blanco: #ffffff;
---font-logo: 'Exo 2', sans-serif;
-}
+        .parallax-divider {
+            height: 60vh;
+            filter: none; /* Eliminado el blanco y negro */
+        }
 
-body{
-font-family:'Inter',sans-serif;
-background-color:var(--negro-fondo);
-color:var(--blanco);
-margin:0;
-scroll-behavior:smooth;
-}
+        .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
+        .divider-2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
+        .divider-3 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg'); }
 
-/* NAV */
+        .hero-content { will-change: transform; transition: transform 0.1s ease-out; }
+        header h1 { font-family: var(--font-logo); font-style: italic; font-size: 3.5rem; margin: 0; letter-spacing: -1px; line-height: 0.9; text-transform: uppercase; }
+        header p { font-family: var(--font-logo); font-style: italic; font-size: 1.2rem; margin-top: 10px; color: #888; letter-spacing: 4px; text-transform: uppercase; }
 
-nav{
-background:rgba(0,0,0,0.95);
-padding:15px 25px;
-position:fixed;
-width:100%;
-top:0;
-z-index:1000;
-border-bottom:1px solid #1a1a1a;
-display:grid;
-grid-template-columns:1fr auto 1fr;
-align-items:center;
-box-sizing:border-box;
-}
+        main { position: relative; background-color: var(--negro-fondo); z-index: 2; }
 
-.nav-logo{
-font-family:var(--font-logo);
-font-style:italic;
-text-transform:uppercase;
-font-size:14px;
-letter-spacing:1px;
-}
+        section { padding: 120px 20px; max-width: 1200px; margin: 0 auto; }
+        h2 { font-family: var(--font-logo); font-style: italic; text-align: center; font-size: 2.2rem; color: var(--blanco); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px; }
+        h3 { font-family: var(--font-logo); font-style: italic; font-size: 1.5rem; color: var(--azul-patagonia); margin-top: 40px; border-bottom: 1px solid #222; padding-bottom: 10px; text-transform: uppercase; }
 
-.nav-links{
-display:flex;
-gap:20px;
-justify-self:center;
-}
+        .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
+        .card { background: var(--gris-tarjeta); padding: 40px 25px; border-radius: 15px; border: 1px solid #222; text-align: center; transition: 0.4s; display: flex; flex-direction: column; justify-content: space-between; }
+        .card:hover { border-color: var(--azul-patagonia); }
+        .card.featured { border-color: var(--azul-patagonia); }
+        .price { font-family: var(--font-logo); font-style: italic; font-size: 2.2rem; margin: 15px 0; color: var(--blanco); }
+        .card p { color: #888; font-size: 0.95rem; line-height: 1.5; margin-bottom: 20px; }
 
-.nav-links a{
-color:#fff;
-text-decoration:none;
-font-weight:bold;
-font-size:11px;
-text-transform:uppercase;
-letter-spacing:1px;
-opacity:.7;
-transition:.3s;
-}
+        .item-nombre { font-weight: bold; font-size: 1.2rem; margin: 20px 0 10px 0; display: block; }
+        .img-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(200px, 1fr)); gap: 15px; margin-bottom: 40px; }
+        .img-grid img { width: 100%; height: 300px; object-fit: cover; border-radius: 8px; border: 1px solid #1a1a1a; transition: 0.3s; }
+        .img-grid.foil-img img { height: 450px; object-fit: cover; background: #050505; }
+        .img-grid img:hover { border-color: var(--azul-patagonia); }
 
-.nav-links a:hover{
-color:var(--azul-patagonia);
-opacity:1;
-}
+        .alquiler-card { background: #000; padding: 40px; border-radius: 15px; border: 1px solid #1a1a1a; max-width: 700px; margin: 0 auto; }
+        .alquiler-row { display: flex; justify-content: space-between; padding: 20px 0; border-bottom: 1px solid #111; font-size: 1.1rem; }
+        .alquiler-row strong { font-family: var(--font-logo); font-style: italic; color: var(--azul-patagonia); font-size: 1.4rem; }
 
-/* HERO + PARALLAX */
+        .perfil-container { display: flex; align-items: center; gap: 60px; flex-wrap: wrap; justify-content: center; }
+        .foto-gero { width: 280px; height: 280px; border-radius: 50%; object-fit: cover; border: 2px solid #222; }
+        .texto-gero { flex: 1; min-width: 300px; font-style: italic; font-size: 1.1rem; line-height: 1.8; color: #999; }
 
-header,
-.parallax-divider{
-min-height:100vh;
-display:flex;
-flex-direction:column;
-align-items:center;
-text-align:center;
-background-size:cover;
-background-position:center;
-background-repeat:no-repeat;
-background-attachment:fixed;
-position:relative;
-}
+        .wsp-float { position: fixed; bottom: 30px; right: 30px; background: #25d366; color: white; width: 60px; height: 60px; border-radius: 50%; display: flex; align-items: center; justify-content: center; font-size: 32px; z-index: 1000; text-decoration: none; }
+        .btn { background: var(--azul-patagonia); color: white; padding: 15px 30px; border-radius: 2px; text-decoration: none; font-weight: bold; display: inline-block; font-size: 12px; transition: 0.3s; text-transform: uppercase; width: 90%; align-self: center; }
+        .contact-cta { text-align: center; margin-top: 60px; padding: 60px 20px; background: #050505; border: 1px solid #111; border-radius: 15px; }
+        .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: none; font-size: 1.3rem; font-family: var(--font-logo); font-style: italic; }
 
-header{
-justify-content:flex-end;
-background-image:
-linear-gradient(rgba(0,0,0,.2),rgba(0,0,0,.5)),
-url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png');
-}
-
-.parallax-divider{
-min-height:60vh;
-}
-
-.divider-1{
-background-image:
-linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg');
-}
-
-.divider-2{
-background-image:
-linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg');
-}
-
-.divider-3{
-background-image:
-linear-gradient(rgba(0,0,0,.6),rgba(0,0,0,.6)),
-url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg');
-}
-
-/* TEXT */
-
-.hero-content{
-transition:transform .1s ease-out;
-}
-
-header h1{
-font-family:var(--font-logo);
-font-style:italic;
-font-size:3.5rem;
-margin:0;
-line-height:.9;
-text-transform:uppercase;
-}
-
-header p{
-font-family:var(--font-logo);
-font-style:italic;
-font-size:1.2rem;
-margin-top:10px;
-color:#888;
-letter-spacing:4px;
-}
-
-/* SECTIONS */
-
-main{
-position:relative;
-background:#0a0a0a;
-}
-
-section{
-padding:120px 20px;
-max-width:1200px;
-margin:auto;
-}
-
-h2{
-font-family:var(--font-logo);
-font-style:italic;
-text-align:center;
-font-size:2.2rem;
-margin-bottom:60px;
-letter-spacing:2px;
-}
-
-.grid{
-display:grid;
-grid-template-columns:repeat(auto-fit,minmax(280px,1fr));
-gap:25px;
-}
-
-.card{
-background:#000;
-padding:40px 25px;
-border-radius:15px;
-border:1px solid #222;
-text-align:center;
-transition:.4s;
-display:flex;
-flex-direction:column;
-}
-
-.card:hover{
-border-color:var(--azul-patagonia);
-}
-
-.price{
-font-family:var(--font-logo);
-font-style:italic;
-font-size:2.2rem;
-margin:15px 0;
-}
-
-.card p{
-color:#888;
-}
-
-.btn{
-background:var(--azul-patagonia);
-color:#fff;
-padding:15px 30px;
-border-radius:2px;
-text-decoration:none;
-font-weight:bold;
-font-size:12px;
-text-transform:uppercase;
-margin-top:auto;
-}
-
-/* WHATSAPP */
-
-.wsp-float{
-position:fixed;
-bottom:30px;
-right:30px;
-background:#25d366;
-width:60px;
-height:60px;
-border-radius:50%;
-display:flex;
-align-items:center;
-justify-content:center;
-font-size:32px;
-color:white;
-text-decoration:none;
-z-index:1000;
-}
-
-/* 📱 MOBILE FIX REAL */
-
-@media (max-width:768px){
-
-header,
-.parallax-divider{
-background-attachment:scroll;
-min-height:75vh;
-}
-
-header h1{
-font-size:2.4rem;
-}
-
-}
-
-</style>
+        @media (max-width: 768px) {
+            nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
+            .nav-logo { font-size: 11px; justify-self: center; }
+            header h1 { font-size: 2.2rem; }
+            header, .parallax-divider { background-attachment: scroll !important; height: 50vh !important; }
+            header { padding-bottom: 35vh !important; height: 100vh !important; } /* Ajustado para móvil */
+            .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
+            .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
+            .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
+            .perfil-container { text-align: center; }
+            .texto-gero { text-align: center; min-width: 100%; }
+        }
+    </style>
 </head>
-
 <body>
 
 <nav>
-<div class="nav-logo">Patagonia Wingfoil</div>
-
-<div class="nav-links">
-<a href="#clases">Clases</a>
-<a href="#alquiler">Alquiler</a>
-<a href="#equipos">Equipos</a>
-<a href="#nosotros">Nosotros</a>
-</div>
-
-<div style="width:140px;"></div>
+    <div class="nav-logo">Patagonia Wingfoil</div>
+    <div class="nav-links">
+        <a href="#clases">Clases</a>
+        <a href="#alquiler">Alquiler</a>
+        <a href="#equipos">Equipos</a>
+        <a href="#nosotros">Nosotros</a>
+    </div>
+    <div style="width: 140px;" class="pc-only"></div>
 </nav>
 
 <header>
-<div class="hero-content" id="parallax-text">
-<h1>PATAGONIA<br>WINGFOIL</h1>
-<p>RIDE THE WIND</p>
-</div>
+    <div class="hero-content" id="parallax-text">
+        <h1>PATAGONIA<br>WINGFOIL</h1>
+        <p>RIDE THE WIND</p>
+    </div>
 </header>
 
 <main>
+    <section id="clases">
+        <h2>Tarifas Clases</h2>
+        <p style="text-align:center; margin-top:-10px; margin-bottom:30px; color:#666;">
+            Todas las clases incluyen traje neoprene, equipo completo y embarcación.
+        </p>
+        <div class="grid">
+            <div class="card">
+                <h3>🚤 Bautismo</h3>
+                <div class="price">$100.000</div>
+                <p><strong>1 hora</strong></p>
+                <p>Primeros despegues de forma segura con apoyo de embarcación.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+            <div class="card">
+                <h3>🌊 Pack Iniciación</h3>
+                <div class="price">$270.000</div>
+                <p><strong>3 horas</strong></p>
+                <p>Ganá confianza, entendé la técnica y tené tus primeras sensaciones reales sobre la tabla.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+            <div class="card featured">
+                <h3>🔥 Progresión</h3>
+                <div class="price">$600.000</div>
+                <p><strong>7 horas</strong></p>
+                <p>Avanzá en serio, mejorá tu estabilidad y control, y disfrutá sesiones más largas.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+            <div class="card">
+                <h3>⚡ Evolución</h3>
+                <div class="price">$780.000</div>
+                <p><strong>10 horas</strong></p>
+                <p>Consolidá la técnica, lográ mayor independencia y ganá seguridad en el agua.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+            <div class="card">
+                <h3>🏄 Dominio</h3>
+                <div class="price">$900.000</div>
+                <p><strong>12 horas</strong></p>
+                <p>Alcanzá un nivel sólido, tené control total en distintas condiciones de viento.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+            <div class="card">
+                <h3>🏆 Experto</h3>
+                <div class="price">$1.100.000</div>
+                <p><strong>15 horas</strong></p>
+                <p>Llevá tu nivel al máximo y entrená con continuidad profesional.</p>
+                <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
+            </div>
+        </div>
+        <div style="text-align:center; margin-top:50px; color:#aaa; font-style:italic;">
+            Paquetes personalizados: armamos un plan a medida según tus objetivos con descuentos exclusivos.
+        </div>
+    </section>
 
-<section id="clases">
+    <div class="parallax-divider divider-1"></div>
 
-<h2>Tarifas Clases</h2>
+    <section id="alquiler">
+        <h2>Alquiler de Equipo</h2>
+        <div class="alquiler-card">
+            <div class="alquiler-row"><span>1 Hora</span><strong>$75.000</strong></div>
+            <div class="alquiler-row"><span>Día Completo</span><strong>$250.000</strong></div>
+            <div class="alquiler-row" style="border:none;"><span>Varios Días</span><strong>A charlar</strong></div>
+            <div style="color:#555; text-align:center; font-size:0.9rem; margin-top:20px;">✔ Tabla | ✔ Wing | ✔ Leash</div>
+        </div>
+    </section>
 
-<p style="text-align:center;margin-top:-10px;margin-bottom:30px;color:#666;">
-Todas las clases incluyen traje neoprene, equipo completo y embarcación.
-</p>
+    <div class="parallax-divider divider-3"></div>
 
-<div class="grid">
+    <section id="equipos">
+        <h2>Nuestros Equipos</h2>
+        <div style="text-align: center; margin-bottom: 50px;">
+            <div style="font-family: var(--font-logo); font-style: italic; font-size: 2.5rem; text-transform: uppercase;">KT SURFING</div>
+            <div style="font-size: 1.2rem; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-top: 5px;">Marca líder a nivel mundial</div>
+        </div>
+        
+        <h3>TABLAS</h3>
+        <span class="item-nombre">KT Drifter 115L 6’3</span>
+        <div class="img-grid">
+            <img src="https://i.postimg.cc/nM8hgMCR/drifter-4-const-2x.webp" alt="KT Drifter 1">
+            <img src="https://i.postimg.cc/V5ykp5dV/drifter-4-highlight-5.webp" alt="KT Drifter 2">
+            <img src="https://i.postimg.cc/14x324f7/drifter-4-shape-2x.webp" alt="KT Drifter 3">
+        </div>
 
-<div class="card">
-<h3>🚤 Bautismo</h3>
-<div class="price">$100.000</div>
-<p><strong>1 hora</strong></p>
-<p>Primeros despegues seguros con apoyo de embarcación.</p>
-<a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
-</div>
+        <span class="item-nombre">KT Ginxu Pro Carbon 2 (46L 4’1 | 62L 5’3)</span>
+        <div class="img-grid">
+            <img src="https://i.postimg.cc/kGfcgBHT/Whats-App-Image-2026-01-27-at-09-37-58-(1).jpg" alt="KT Ginxu">
+            <img src="https://i.postimg.cc/T1C93psz/Whats-App-Image-2026-01-27-at-09-37-58-(2).jpg" alt="KT Ginxu">
+            <img src="https://i.postimg.cc/mk8wgtqG/Whats-App-Image-2026-01-27-at-09-37-58-(3).jpg" alt="KT Ginxu">
+        </div>
 
-<div class="card">
-<h3>🌊 Pack Iniciación</h3>
-<div class="price">$270.000</div>
-<p><strong>3 horas</strong></p>
-<p>Confianza, técnica y primeras sensaciones reales.</p>
-<a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
-</div>
+        <span class="item-nombre">KT Wing Drifter Flight 155L 7’3</span>
+        <div class="img-grid">
+            <img src="https://i.postimg.cc/SR9y6qgF/2023-wing-drifter-flight-product1-2x.jpg" alt="KT Flight 1">
+            <img src="https://i.postimg.cc/BbFqTsmG/2023-wing-drifter-flight-product2-2x.jpg" alt="KT Flight 2">
+            <img src="https://i.postimg.cc/BbFqTsm0/2023-wing-drifter-flight-product3-2x.jpg" alt="KT Flight 3">
+        </div>
 
-<div class="card">
-<h3>🔥 Progresión</h3>
-<div class="price">$600.000</div>
-<p><strong>7 horas</strong></p>
-<p>Más estabilidad, control y sesiones más largas.</p>
-<a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
-</div>
+        <h3>WINGS</h3>
+        <span class="item-nombre">KT Wing Astro (3, 4 y 5 mts)</span>
+        <div class="img-grid">
+            <img src="https://i.postimg.cc/htH0vFCV/wing.webp" alt="KT Astro 1">
+            <img src="https://i.postimg.cc/xCy5cbSt/astro-desc.webp" alt="KT Astro 2">
+            <img src="https://i.postimg.cc/50qg6FMg/astro-outline-2x.webp" alt="KT Astro 3">
+        </div>
 
-</div>
+        <h3>FOILS</h3>
+        <span class="item-nombre">KT NOMAD 700</span>
+        <div class="img-grid foil-img">
+            <img src="https://i.postimg.cc/SxCMSb49/nomad-agility-2x.webp" alt="KT Nomad 1">
+            <img src="https://i.postimg.cc/RZKHSxmH/nomad-assembly-2x.webp" alt="KT Nomad 2">
+            <img src="https://i.postimg.cc/sg7hjCzQ/nomad-desc.webp" alt="KT Nomad 3">
+        </div>
 
-</section>
+        <span class="item-nombre">KT INSTINCT 1450</span>
+        <div class="img-grid foil-img">
+            <img src="https://i.postimg.cc/g0p6rtkr/instinct-agility-2x.webp" alt="KT Instinct 1">
+            <img src="https://i.postimg.cc/YS7mjDqr/instinct-desc.webp" alt="KT Instinct 2">
+            <img src="https://i.postimg.cc/KYbg4pvj/instinct-pairings-2x.webp" alt="KT Instinct 3">
+        </div>
+    </section>
 
-<div class="parallax-divider divider-1"></div>
+    <div class="parallax-divider divider-2"></div>
 
+    <section id="nosotros">
+        <h2>Quiénes Somos</h2>
+        <div class="perfil-container">
+            <img src="https://i.postimg.cc/3N0Xg4Sq/Captura-de-pantalla-2026-01-25-a-la(s)-6-18-32-p-m.png" class="foto-gero">
+            <div class="texto-gero">
+                "Soy Gerónimo Rendón. Nací y crecí en la Patagonia, rodeado de montañas, viento y frío, así que el contacto con la naturaleza y el deporte siempre fue parte de mi vida. Esquío desde chico y crecí pasando más tiempo afuera que adentro, aprendiendo a moverme en la montaña y a disfrutarla.
+                Con el tiempo encontré en los deportes de viento algo que me atrapó por completo, y así llegué al wingfoil. Hoy me dedico a compartir lo que más me gusta hacer, acompañando a otros a aprender, progresar y disfrutar este deporte de una manera simple, segura y con buena onda."
+            </div>
+        </div>
+        <div class="contact-cta">
+            <a href="https://wa.me/5492944204675">¿Tenes alguna duda? <br>Escribinos por WhatsApp cliqueando acá!</a>
+        </div>
+    </section>
 </main>
 
-<a href="https://wa.me/5492944204675" class="wsp-float">
-<i class="fab fa-whatsapp"></i>
-</a>
+<a href="https://wa.me/5492944204675" class="wsp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
-
-window.addEventListener('scroll',()=>{
-
-const scroll=window.scrollY;
-const text=document.getElementById('parallax-text');
-
-if(text){
-text.style.transform=`translateY(${scroll*0.3}px)`;
-}
-
-});
-
+    window.addEventListener('scroll', function() {
+        const scrollValue = window.scrollY;
+        const parallaxText = document.getElementById('parallax-text');
+        if(parallaxText) parallaxText.style.transform = 'translateY(' + (scrollValue * 0.3) + 'px)';
+    });
 </script>
 
 </body>
