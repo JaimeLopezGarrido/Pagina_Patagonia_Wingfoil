@@ -73,7 +73,7 @@
             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png'); 
         }
 
-        .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; }
+        .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; }
 
         .parallax-divider { height: 60vh; filter: none; }
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
@@ -112,12 +112,16 @@
         .contact-cta { text-align: center; margin-top: 60px; padding: 60px 20px; background: #050505; border: 1px solid #111; border-radius: 15px; }
         .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: none; font-size: 1.3rem; font-family: var(--font-logo); font-style: italic; }
 
+        /* Estilo para el Copyright */
+        footer { padding: 40px 20px; text-align: center; border-top: 1px solid #111; background-color: var(--negro-fondo); }
+        .copyright { font-size: 10px; color: #444; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
+
         @media (max-width: 768px) {
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
             header, .parallax-divider { background-attachment: scroll !important; height: 50vh !important; }
             header { height: 100vh !important; padding-bottom: 10vh !important; }
-            .hero-logo-img { width: 300px; }
+            .hero-logo-img { width: 300px; margin-top: 0; }
             .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
             .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
             .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
@@ -271,7 +275,7 @@
     <section id="nosotros">
         <h2>Founder</h2>
         <div class="perfil-container">
-            <img src="https://i.postimg.cc/Y9VG4MvV/Captura-de-pantalla-2026-02-03-a-la(s)-9-46-25-a-m.png" class="foto-gero">
+            <img src="https://i.postimg.cc/Y9VG4MvV/Captura-de-pantalla-2026-02-03-a-la(s)-9-46-25-a-m.png" class="foto-gero" alt="Gerónimo Rendón">
             <div class="texto-gero">
                 "Soy Gerónimo Rendón. Nací y crecí en la Patagonia, rodeado de montañas, viento y frío, así que el contacto con la naturaleza y el deporte siempre fue parte de mi vida. Esquío desde chico y crecí pasando más tiempo afuera que adentro, aprendiendo a moverme en la montaña y a disfrutarla.
                 Con el tiempo encontré en los deportes de viento algo que me atrapó por completo, y así llegué al wingfoil. Hoy me dedico a compartir lo que más me gusta hacer, acompañando a otros a aprender, progresar y disfrutar este deporte de una manera simple, segura y con buena onda."
@@ -282,6 +286,10 @@
         </div>
     </section>
 </main>
+
+<footer>
+    <p class="copyright">Copyright © JAIME LOPEZ GARRIDO - 2026. Todos los derechos reservados.</p>
+</footer>
 
 <a href="https://wa.me/5492944204675" class="wsp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
