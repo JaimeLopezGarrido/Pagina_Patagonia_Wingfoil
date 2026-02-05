@@ -47,39 +47,48 @@
             font-size: 14px; 
             letter-spacing: 1px;
             justify-self: start;
-            text-decoration: none; /* Asegura que el enlace no tenga subrayado */
+            text-decoration: none;
         }
         
         .nav-links { display: flex; gap: 20px; justify-self: center; }
         .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0.7; }
         .nav-links a:hover { color: var(--azul-patagonia); opacity: 1; }
 
+        /* FIX PARALLAX UNIVERSAL (PC Y CELULAR) */
         header, .parallax-divider { 
             height: 100vh; 
             display: flex; 
             flex-direction: column; 
             align-items: center; 
             text-align: center; 
-            background-size: cover; 
-            background-position: center; 
-            background-repeat: no-repeat;
-            background-attachment: fixed; 
             position: relative;
             z-index: 1;
+            overflow: hidden;
+            background: #000; /* Fondo de seguridad */
         }
 
-        header { 
-            justify-content: flex-end; 
-            padding-bottom: 15vh; 
-            background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png'); 
+        header::before, .parallax-divider::before {
+            content: "";
+            position: absolute;
+            top: 0; left: 0; width: 100%; height: 100%;
+            background-size: cover;
+            background-position: center;
+            background-repeat: no-repeat;
+            background-attachment: fixed;
+            z-index: -1;
+            will-change: transform;
         }
 
-        .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; }
+        header { justify-content: flex-end; padding-bottom: 15vh; }
+        header::before { background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png'); }
 
-        .parallax-divider { height: 60vh; filter: none; }
-        .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
-        .divider-2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
-        .divider-3 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg'); }
+        .parallax-divider { height: 60vh; }
+        .divider-1::before { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
+        .divider-2::before { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
+        .divider-3::before { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg'); }
+
+        /* Estilo portada */
+        .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; position: relative; z-index: 2; }
 
         main { position: relative; background-color: var(--negro-fondo); z-index: 2; }
 
@@ -119,8 +128,18 @@
         @media (max-width: 768px) {
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
-            header, .parallax-divider { background-attachment: scroll !important; height: 50vh !important; }
-            header { height: 100vh !important; padding-bottom: 10vh !important; }
+            header h1 { font-size: 2.2rem; }
+            
+            /* Ajuste de altura para evitar saltos en móvil */
+            header, .parallax-divider { height: 70vh; }
+            header { height: 100vh; padding-bottom: 25vh; }
+            
+            /* Solución técnica para el zoom en móviles manteniendo el efecto */
+            header::before, .parallax-divider::before { 
+                background-attachment: scroll !important; /* Libera el zoom del navegador móvil */
+                height: 120%; /* Sobra imagen para permitir el movimiento */
+            }
+
             .hero-logo-img { width: 300px; margin-top: 0; }
             .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
             .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
@@ -294,10 +313,29 @@
 <a href="https://wa.me/5492944204675" class="wsp-float" target="_blank"><i class="fab fa-whatsapp"></i></a>
 
 <script>
+    /* SCRIPT MEJORADO PARA PARALLAX EN MÓVILES */
     window.addEventListener('scroll', function() {
         const scrollValue = window.scrollY;
+        
+        // Efecto logo portada
         const parallaxText = document.getElementById('parallax-text');
         if(parallaxText) parallaxText.style.transform = 'translateY(' + (scrollValue * 0.3) + 'px)';
+
+        // Efecto separadores suave
+        const dividers = document.querySelectorAll('.parallax-divider, header');
+        dividers.forEach(section => {
+            const speed = 0.5;
+            const rect = section.getBoundingClientRect();
+            const offset = window.pageYOffset;
+            // Solo aplicamos movimiento si la sección es visible para ahorrar recursos
+            if (rect.top < window.innerHeight && rect.bottom > 0) {
+                const yPos = -(offset * speed);
+                // Si es móvil usamos una técnica de traslación para evitar el zoom del background-attachment fixed
+                if (window.innerWidth <= 768) {
+                    section.style.backgroundPosition = `center calc(50% + ${(rect.top * 0.2)}px)`;
+                }
+            }
+        });
     });
 </script>
 
