@@ -54,7 +54,6 @@
         .nav-links a { color: var(--blanco); text-decoration: none; font-weight: bold; font-size: 11px; text-transform: uppercase; letter-spacing: 1px; transition: 0.3s; opacity: 0.7; }
         .nav-links a:hover { color: var(--azul-patagonia); opacity: 1; }
 
-        /* Estilo para PC (Vuelve al original que funcionaba) */
         header, .parallax-divider { 
             height: 100vh; 
             display: flex; 
@@ -75,12 +74,19 @@
             background-image: linear-gradient(rgba(0,0,0,0.2), rgba(0,0,0,0.5)), url('https://i.postimg.cc/Vs3kXrYP/Captura-de-pantalla-2026-02-01-a-la(s)-8-21-23-a-m.png'); 
         }
 
-        .parallax-divider { height: 60vh; filter: none; }
+        .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; }
+
+        .parallax-divider { 
+            height: 60vh; 
+            filter: none; 
+            justify-content: center; /* Centra el título en opción 2 */
+        }
+        
+        .parallax-divider h2 { margin-bottom: 0 !important; pointer-events: none; }
+
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
         .divider-2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
         .divider-3 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/zvvj3TgV/PHOTO-2026-01-19-20-18-01-3.jpg'); }
-
-        .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; }
 
         main { position: relative; background-color: var(--negro-fondo); z-index: 2; }
 
@@ -117,16 +123,18 @@
         footer { padding: 40px 20px; text-align: center; border-top: 1px solid #111; background-color: var(--negro-fondo); }
         .copyright { font-size: 10px; color: #444; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
 
-        /* OPCIONES SOLO CELULAR */
+        /* OPCIONES SOLO CELULAR - OPCIÓN 2 */
         @media (max-width: 768px) {
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
             
-            /* En celular quitamos el attachment: fixed para eliminar el zoom gigante */
-            header, .parallax-divider { 
-                background-attachment: scroll !important; 
-                height: 40vh !important; 
-            }
+            header, .parallax-divider { background-attachment: scroll !important; }
+            
+            /* Títulos integrados en la imagen en móvil */
+            .section-title-mobile { display: none; } /* Ocultamos el h2 tradicional */
+            .parallax-divider { height: 45vh !important; }
+            .parallax-divider h2 { display: block !important; font-size: 1.8rem; }
+            
             header { height: 100vh !important; padding-bottom: 5vh !important; justify-content: center; }
             .hero-logo-img { width: 300px; margin-top: 0; }
 
@@ -135,6 +143,11 @@
             .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
             .perfil-container { text-align: center; }
             .texto-gero { text-align: center; min-width: 100%; }
+        }
+        
+        /* En PC mostramos los h2 normalmente */
+        @media (min-width: 769px) {
+            .parallax-divider h2 { display: none; }
         }
     </style>
 </head>
@@ -156,8 +169,12 @@
 </header>
 
 <main>
-    <section id="clases">
+    <div class="parallax-divider divider-1">
         <h2>Tarifas Clases</h2>
+    </div>
+
+    <section id="clases">
+        <h2 class="section-title-mobile">Tarifas Clases</h2>
         <p style="text-align:center; margin-top:-10px; margin-bottom:30px; color:#666;">
             Todas las clases incluyen traje neoprene, equipo completo y embarcación.
         </p>
@@ -210,10 +227,12 @@
         </div>
     </section>
 
-    <div class="parallax-divider divider-1"></div>
+    <div class="parallax-divider divider-3">
+        <h2>Alquiler de Equipos</h2>
+    </div>
 
     <section id="alquiler">
-        <h2>Alquiler de Equipos</h2>
+        <h2 class="section-title-mobile">Alquiler de Equipos</h2>
         <div class="alquiler-card">
             <div class="alquiler-row"><span>1 Hora</span><strong>$75.000</strong></div>
             <div class="alquiler-row"><span>Día Completo</span><strong>$250.000</strong></div>
@@ -222,16 +241,12 @@
         </div>
     </section>
 
-    <div class="parallax-divider divider-3"></div>
-
     <section id="equipos">
         <h2>Nuestros Equipos</h2>
-        
         <div style="text-align: center; margin-bottom: 50px;">
             <div style="font-family: var(--font-logo); font-style: italic; font-size: 2.5rem; text-transform: uppercase;">KT SURFING</div>
             <div style="font-size: 1.2rem; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-top: 5px;">Marca líder a nivel mundial</div>
         </div>
-        
         <h3>TABLAS</h3>
         <span class="item-nombre">KT Drifter 115L 6’3</span>
         <div class="img-grid">
@@ -239,21 +254,18 @@
             <img src="https://i.postimg.cc/V5ykp5dV/drifter-4-highlight-5.webp" alt="KT Drifter 2">
             <img src="https://i.postimg.cc/14x324f7/drifter-4-shape-2x.webp" alt="KT Drifter 3">
         </div>
-
         <span class="item-nombre">KT Ginxu Pro Carbon 2 (46L 4’1 | 62L 5’3)</span>
         <div class="img-grid">
             <img src="https://i.postimg.cc/kGfcgBHT/Whats-App-Image-2026-01-27-at-09-37-58-(1).jpg" alt="KT Ginxu">
             <img src="https://i.postimg.cc/T1C93psz/Whats-App-Image-2026-01-27-at-09-37-58-(2).jpg" alt="KT Ginxu">
             <img src="https://i.postimg.cc/mk8wgtqG/Whats-App-Image-2026-01-27-at-09-37-58-(3).jpg" alt="KT Ginxu">
         </div>
-
         <span class="item-nombre">KT Wing Drifter Flight 155L 7’3</span>
         <div class="img-grid">
             <img src="https://i.postimg.cc/SR9y6qgF/2023-wing-drifter-flight-product1-2x.jpg" alt="KT Flight 1">
             <img src="https://i.postimg.cc/BbFqTsmG/2023-wing-drifter-flight-product2-2x.jpg" alt="KT Flight 2">
             <img src="https://i.postimg.cc/BbFqTsm0/2023-wing-drifter-flight-product3-2x.jpg" alt="KT Flight 3">
         </div>
-
         <h3>WINGS</h3>
         <span class="item-nombre">KT Wing Astro (3, 4 y 5 mts)</span>
         <div class="img-grid">
@@ -261,7 +273,6 @@
             <img src="https://i.postimg.cc/xCy5cbSt/astro-desc.webp" alt="KT Astro 2">
             <img src="https://i.postimg.cc/50qg6FMg/astro-outline-2x.webp" alt="KT Astro 3">
         </div>
-
         <h3>FOILS</h3>
         <span class="item-nombre">KT NOMAD 700</span>
         <div class="img-grid foil-img">
@@ -269,7 +280,6 @@
             <img src="https://i.postimg.cc/RZKHSxmH/nomad-assembly-2x.webp" alt="KT Nomad 2">
             <img src="https://i.postimg.cc/sg7hjCzQ/nomad-desc.webp" alt="KT Nomad 3">
         </div>
-
         <span class="item-nombre">KT INSTINCT 1450</span>
         <div class="img-grid foil-img">
             <img src="https://i.postimg.cc/g0p6rtkr/instinct-agility-2x.webp" alt="KT Instinct 1">
@@ -278,10 +288,12 @@
         </div>
     </section>
 
-    <div class="parallax-divider divider-2"></div>
+    <div class="parallax-divider divider-2">
+        <h2>Founder</h2>
+    </div>
 
     <section id="nosotros">
-        <h2>Founder</h2>
+        <h2 class="section-title-mobile">Founder</h2>
         <div class="perfil-container">
             <img src="https://i.postimg.cc/Y9VG4MvV/Captura-de-pantalla-2026-02-03-a-la(s)-9-46-25-a-m.png" class="foto-gero" alt="Gerónimo Rendón">
             <div class="texto-gero">
@@ -304,9 +316,21 @@
 <script>
     window.addEventListener('scroll', function() {
         const scrollValue = window.scrollY;
+        
+        // Parallax Portada (PC y Móvil)
         const parallaxText = document.getElementById('parallax-text');
-        if(parallaxText && window.innerWidth > 768) {
-            parallaxText.style.transform = 'translateY(' + (scrollValue * 0.3) + 'px)';
+        if(parallaxText) parallaxText.style.transform = 'translateY(' + (scrollValue * 0.3) + 'px)';
+
+        // Efecto flote para títulos sobre fotos en celular
+        if(window.innerWidth <= 768) {
+            const dividers = document.querySelectorAll('.parallax-divider h2');
+            dividers.forEach(title => {
+                const rect = title.parentElement.getBoundingClientRect();
+                if(rect.top < window.innerHeight && rect.bottom > 0) {
+                    const move = (rect.top * 0.15);
+                    title.style.transform = `translateY(${move}px)`;
+                }
+            });
         }
     });
 </script>
