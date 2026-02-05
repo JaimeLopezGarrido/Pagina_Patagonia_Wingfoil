@@ -47,7 +47,7 @@
             font-size: 14px; 
             letter-spacing: 1px;
             justify-self: start;
-            text-decoration: none; /* Asegura que el enlace no tenga subrayado */
+            text-decoration: none;
         }
         
         .nav-links { display: flex; gap: 20px; justify-self: center; }
@@ -77,7 +77,7 @@
         .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; }
 
         .parallax-divider { height: 60vh; filter: none; justify-content: center; }
-        .parallax-divider span { display: none; } /* Oculto en PC por defecto */
+        .parallax-divider span { display: none; } 
 
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
         .divider-2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
@@ -85,7 +85,7 @@
 
         main { position: relative; background-color: var(--negro-fondo); z-index: 2; }
 
-        section { padding: 120px 20px; max-width: 1200px; margin: 0 auto; }
+        section { padding: 120px 20px; max-width: 1200px; margin: 0 auto; background-color: var(--negro-fondo); position: relative; z-index: 5; }
         h2 { font-family: var(--font-logo); font-style: italic; text-align: center; font-size: 2.2rem; color: var(--blanco); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px; }
         h3 { font-family: var(--font-logo); font-style: italic; font-size: 1.5rem; color: var(--azul-patagonia); margin-top: 40px; border-bottom: 1px solid #222; padding-bottom: 10px; text-transform: uppercase; }
 
@@ -115,19 +115,18 @@
         .contact-cta { text-align: center; margin-top: 60px; padding: 60px 20px; background: #050505; border: 1px solid #111; border-radius: 15px; }
         .contact-cta a { color: var(--azul-patagonia); font-weight: bold; text-decoration: none; font-size: 1.3rem; font-family: var(--font-logo); font-style: italic; }
 
-        footer { padding: 40px 20px; text-align: center; border-top: 1px solid #111; background-color: var(--negro-fondo); }
+        footer { padding: 40px 20px; text-align: center; border-top: 1px solid #111; background-color: var(--negro-fondo); position: relative; z-index: 5; }
         .copyright { font-size: 10px; color: #444; letter-spacing: 2px; text-transform: uppercase; margin: 0; }
 
         @media (max-width: 768px) {
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
             
-            /* Efecto Reveal para Celulares */
             .parallax-divider { 
                 height: 100vh !important; 
                 position: sticky !important; 
                 top: 0; 
-                z-index: -1; 
+                z-index: 1; 
                 background-attachment: scroll !important; 
             }
             .parallax-divider span { 
