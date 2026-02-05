@@ -31,6 +31,7 @@
             scroll-behavior: smooth; 
             overflow-x: hidden;
             -webkit-font-smoothing: antialiased; /* Fix para manchas en fuentes */
+            -moz-osx-font-smoothing: grayscale;
         }
         
         nav { 
@@ -93,7 +94,7 @@
         .parallax-divider h2 { 
             margin-bottom: 0 !important; 
             pointer-events: none;
-            -webkit-font-smoothing: antialiased; /* Fix específico para la Q */
+            -webkit-font-smoothing: antialiased; /* Fix específico para letras */
         }
 
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
@@ -138,19 +139,12 @@
         @media (max-width: 768px) {
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
-            
             header, .parallax-divider { background-attachment: scroll !important; }
             .section-title-mobile { display: none; } 
             .parallax-divider { height: 45vh !important; }
             .parallax-divider h2 { display: block !important; font-size: 1.8rem; }
-            
-            header { 
-                height: 100vh !important; 
-                padding-bottom: 25vh !important;
-                justify-content: flex-end !important; 
-            }
+            header { height: 100vh !important; padding-bottom: 25vh !important; justify-content: flex-end !important; }
             .hero-logo-img { width: 300px; margin-top: 0; }
-
             .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
             .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
             .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
@@ -269,7 +263,7 @@
         <span class="item-nombre">KT Ginxu Pro Carbon 2 (46L 4’1 | 62L 5’3)</span>
         <div class="img-grid">
             <img src="https://i.postimg.cc/kGfcgBHT/Whats-App-Image-2026-01-27-at-09-37-58-(1).jpg" alt="KT Ginxu">
-            <img src="https://i.postimg.cc/T1C93psz/Whats-App-Image-2026-01-27-at-09-37-58-(2).jpg" alt="KT Ginxu">
+            <img src="https://i.postimg.cc/T1C93psz/Whats-App-Image-2026-02-01-at-08-21-23-a-m.png" alt="KT Ginxu">
             <img src="https://i.postimg.cc/mk8wgtqG/Whats-App-Image-2026-01-27-at-09-37-58-(3).jpg" alt="KT Ginxu">
         </div>
         <span class="item-nombre">KT Wing Drifter Flight 155L 7’3</span>
