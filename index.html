@@ -30,7 +30,7 @@
             margin: 0; 
             scroll-behavior: smooth; 
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; /* FIX LETRA Q */
+            -webkit-font-smoothing: antialiased; /* Fix para manchas blancas */
             -moz-osx-font-smoothing: grayscale;
         }
         
@@ -85,7 +85,12 @@
 
         .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; }
 
-        .parallax-divider { height: 60vh; filter: none; justify-content: center; }
+        .parallax-divider { 
+            height: 60vh; 
+            filter: none; 
+            justify-content: center; 
+        }
+        
         .parallax-divider h2 { margin-bottom: 0 !important; pointer-events: none; -webkit-font-smoothing: antialiased; }
 
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
@@ -131,7 +136,7 @@
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
             header, .parallax-divider { background-attachment: scroll !important; }
-            section h2 { display: none; } /* Ocultamos el h2 fuera de la foto en movil */
+            section h2 { display: none; } 
             .parallax-divider { height: 45vh !important; display: flex !important; }
             .parallax-divider h2 { display: block !important; font-size: 1.8rem; }
             header { height: 100vh !important; padding-bottom: 25vh !important; justify-content: flex-end !important; }
@@ -308,11 +313,11 @@
     window.addEventListener('scroll', function() {
         const scrollValue = window.scrollY;
         
-        // Parallax Portada (PC y Móvil)
+        // Parallax Portada
         const parallaxText = document.getElementById('parallax-text');
         if(parallaxText) parallaxText.style.transform = 'translateY(' + (scrollValue * 0.3) + 'px)';
 
-        // Efecto flote para títulos sobre fotos en celular
+        // Movimiento títulos en celular
         if(window.innerWidth <= 768) {
             const dividers = document.querySelectorAll('.parallax-divider h2');
             dividers.forEach(title => {
