@@ -30,7 +30,7 @@
             margin: 0; 
             scroll-behavior: smooth; 
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; /* Fix para manchas blancas */
+            -webkit-font-smoothing: antialiased; /* Fix para las manchas blancas en la Q */
             -moz-osx-font-smoothing: grayscale;
         }
         
@@ -85,12 +85,7 @@
 
         .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; }
 
-        .parallax-divider { 
-            height: 60vh; 
-            filter: none; 
-            justify-content: center; 
-        }
-        
+        .parallax-divider { height: 60vh; filter: none; justify-content: center; }
         .parallax-divider h2 { margin-bottom: 0 !important; pointer-events: none; -webkit-font-smoothing: antialiased; }
 
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
@@ -100,7 +95,7 @@
         main { position: relative; background-color: var(--negro-fondo); z-index: 2; }
 
         section { padding: 120px 20px; max-width: 1200px; margin: 0 auto; }
-        h2 { font-family: var(--font-logo); font-style: italic; text-align: center; font-size: 2.2rem; color: var(--blanco); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px; }
+        h2 { font-family: var(--font-logo); font-style: italic; text-align: center; font-size: 2.2rem; color: var(--blanco); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px; -webkit-font-smoothing: antialiased; }
         h3 { font-family: var(--font-logo); font-style: italic; font-size: 1.5rem; color: var(--azul-patagonia); margin-top: 40px; border-bottom: 1px solid #222; padding-bottom: 10px; text-transform: uppercase; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
@@ -136,9 +131,9 @@
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
             header, .parallax-divider { background-attachment: scroll !important; }
-            section h2 { display: none; } 
-            .parallax-divider { height: 45vh !important; display: flex !important; }
+            .parallax-divider { height: 45vh !important; }
             .parallax-divider h2 { display: block !important; font-size: 1.8rem; }
+            section h2 { display: none; }
             header { height: 100vh !important; padding-bottom: 25vh !important; justify-content: flex-end !important; }
             .hero-logo-img { width: 300px; margin-top: 0; }
             .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
@@ -222,6 +217,9 @@
                 <p>Llevá tu nivel al máximo y entrená con continuidad profesional.</p>
                 <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
             </div>
+        </div>
+        <div style="text-align:center; margin-top:50px; color:#aaa; font-style:italic;">
+            Paquetes personalizados: armamos un plan a medida según tus objetivos con descuentos exclusivos.
         </div>
     </section>
 
@@ -317,7 +315,7 @@
         const parallaxText = document.getElementById('parallax-text');
         if(parallaxText) parallaxText.style.transform = 'translateY(' + (scrollValue * 0.3) + 'px)';
 
-        // Movimiento títulos en celular
+        // Movimiento suave para los títulos sobre las fotos en celular
         if(window.innerWidth <= 768) {
             const dividers = document.querySelectorAll('.parallax-divider h2');
             dividers.forEach(title => {
