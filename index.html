@@ -30,7 +30,7 @@
             margin: 0; 
             scroll-behavior: smooth; 
             overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; /* Fix para manchas en fuentes */
+            -webkit-font-smoothing: antialiased; /* FIX LETRA Q */
             -moz-osx-font-smoothing: grayscale;
         }
         
@@ -85,17 +85,8 @@
 
         .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; }
 
-        .parallax-divider { 
-            height: 60vh; 
-            filter: none; 
-            justify-content: center; 
-        }
-        
-        .parallax-divider h2 { 
-            margin-bottom: 0 !important; 
-            pointer-events: none;
-            -webkit-font-smoothing: antialiased; /* Fix específico para letras */
-        }
+        .parallax-divider { height: 60vh; filter: none; justify-content: center; }
+        .parallax-divider h2 { margin-bottom: 0 !important; pointer-events: none; -webkit-font-smoothing: antialiased; }
 
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
         .divider-2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
@@ -140,8 +131,8 @@
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
             header, .parallax-divider { background-attachment: scroll !important; }
-            .section-title-mobile { display: none; } 
-            .parallax-divider { height: 45vh !important; }
+            section h2 { display: none; } /* Ocultamos el h2 fuera de la foto en movil */
+            .parallax-divider { height: 45vh !important; display: flex !important; }
             .parallax-divider h2 { display: block !important; font-size: 1.8rem; }
             header { height: 100vh !important; padding-bottom: 25vh !important; justify-content: flex-end !important; }
             .hero-logo-img { width: 300px; margin-top: 0; }
@@ -180,7 +171,6 @@
     </div>
 
     <section id="clases">
-        <h2 class="section-title-mobile">Tarifas Clases</h2>
         <p style="text-align:center; margin-top:-10px; margin-bottom:30px; color:#666;">
             Todas las clases incluyen traje neoprene, equipo completo y embarcación.
         </p>
@@ -228,9 +218,6 @@
                 <a href="https://wa.me/5492944204675" class="btn">RESERVAR</a>
             </div>
         </div>
-        <div style="text-align:center; margin-top:50px; color:#aaa; font-style:italic;">
-            Paquetes personalizados: armamos un plan a medida según tus objetivos con descuentos exclusivos.
-        </div>
     </section>
 
     <div class="parallax-divider divider-3">
@@ -238,7 +225,6 @@
     </div>
 
     <section id="alquiler">
-        <h2 class="section-title-mobile">Alquiler de Equipos</h2>
         <div class="alquiler-card">
             <div class="alquiler-row"><span>1 Hora</span><strong>$75.000</strong></div>
             <div class="alquiler-row"><span>Día Completo</span><strong>$250.000</strong></div>
@@ -299,7 +285,6 @@
     </div>
 
     <section id="nosotros">
-        <h2 class="section-title-mobile">Founder</h2>
         <div class="perfil-container">
             <img src="https://i.postimg.cc/Y9VG4MvV/Captura-de-pantalla-2026-02-03-a-la(s)-9-46-25-a-m.png" class="foto-gero" alt="Gerónimo Rendón">
             <div class="texto-gero">
