@@ -79,7 +79,7 @@
         .parallax-divider { 
             height: 60vh; 
             filter: none; 
-            justify-content: center; /* Centra el título en opción 2 */
+            justify-content: center; 
         }
         
         .parallax-divider h2 { margin-bottom: 0 !important; pointer-events: none; }
@@ -131,11 +131,16 @@
             header, .parallax-divider { background-attachment: scroll !important; }
             
             /* Títulos integrados en la imagen en móvil */
-            .section-title-mobile { display: none; } /* Ocultamos el h2 tradicional */
+            .section-title-mobile { display: none; } 
             .parallax-divider { height: 45vh !important; }
             .parallax-divider h2 { display: block !important; font-size: 1.8rem; }
             
-            header { height: 100vh !important; padding-bottom: 5vh !important; justify-content: center; }
+            /* Cambio Solicitado: Logo en portada a 3/4 (más abajo) */
+            header { 
+                height: 100vh !important; 
+                padding-bottom: 25vh !important; /* Aumentado para empujar hacia abajo */
+                justify-content: flex-end !important; /* Cambiado de center a end */
+            }
             .hero-logo-img { width: 300px; margin-top: 0; }
 
             .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
@@ -145,7 +150,6 @@
             .texto-gero { text-align: center; min-width: 100%; }
         }
         
-        /* En PC mostramos los h2 normalmente */
         @media (min-width: 769px) {
             .parallax-divider h2 { display: none; }
         }
