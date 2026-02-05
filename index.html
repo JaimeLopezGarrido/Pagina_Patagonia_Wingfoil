@@ -23,16 +23,7 @@
             --blanco: #ffffff;
             --font-logo: 'Exo 2', sans-serif;
         }
-        body { 
-            font-family: 'Inter', sans-serif; 
-            background-color: var(--negro-fondo); 
-            color: var(--blanco); 
-            margin: 0; 
-            scroll-behavior: smooth; 
-            overflow-x: hidden;
-            -webkit-font-smoothing: antialiased; /* Fix para las manchas blancas en la Q */
-            -moz-osx-font-smoothing: grayscale;
-        }
+        body { font-family: 'Inter', sans-serif; background-color: var(--negro-fondo); color: var(--blanco); margin: 0; scroll-behavior: smooth; overflow-x: hidden; }
         
         nav { 
             background: rgba(0,0,0,0.95); 
@@ -56,7 +47,7 @@
             font-size: 14px; 
             letter-spacing: 1px;
             justify-self: start;
-            text-decoration: none;
+            text-decoration: none; /* Asegura que el enlace no tenga subrayado */
         }
         
         .nav-links { display: flex; gap: 20px; justify-self: center; }
@@ -86,7 +77,7 @@
         .hero-logo-img { max-width: 85%; width: 500px; height: auto; will-change: transform; margin-top: 100px; }
 
         .parallax-divider { height: 60vh; filter: none; justify-content: center; }
-        .parallax-divider h2 { margin-bottom: 0 !important; pointer-events: none; -webkit-font-smoothing: antialiased; }
+        .parallax-divider span { display: none; } /* Oculto en PC por defecto */
 
         .divider-1 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/0Qcn8Vbr/DSC-2109.jpg'); }
         .divider-2 { background-image: linear-gradient(rgba(0,0,0,0.6), rgba(0,0,0,0.6)), url('https://i.postimg.cc/DZB62x8z/DSC-1987.jpg'); }
@@ -95,7 +86,7 @@
         main { position: relative; background-color: var(--negro-fondo); z-index: 2; }
 
         section { padding: 120px 20px; max-width: 1200px; margin: 0 auto; }
-        h2 { font-family: var(--font-logo); font-style: italic; text-align: center; font-size: 2.2rem; color: var(--blanco); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px; -webkit-font-smoothing: antialiased; }
+        h2 { font-family: var(--font-logo); font-style: italic; text-align: center; font-size: 2.2rem; color: var(--blanco); margin-bottom: 60px; text-transform: uppercase; letter-spacing: 2px; }
         h3 { font-family: var(--font-logo); font-style: italic; font-size: 1.5rem; color: var(--azul-patagonia); margin-top: 40px; border-bottom: 1px solid #222; padding-bottom: 10px; text-transform: uppercase; }
 
         .grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 25px; }
@@ -130,21 +121,34 @@
         @media (max-width: 768px) {
             nav { display: flex; flex-direction: column; padding: 10px 15px; gap: 8px; }
             .nav-logo { font-size: 11px; justify-self: center; }
-            header, .parallax-divider { background-attachment: scroll !important; }
-            .parallax-divider { height: 45vh !important; }
-            .parallax-divider h2 { display: block !important; font-size: 1.8rem; }
-            section h2 { display: none; }
-            header { height: 100vh !important; padding-bottom: 25vh !important; justify-content: flex-end !important; }
+            
+            /* Efecto Reveal para Celulares */
+            .parallax-divider { 
+                height: 100vh !important; 
+                position: sticky !important; 
+                top: 0; 
+                z-index: -1; 
+                background-attachment: scroll !important; 
+            }
+            .parallax-divider span { 
+                display: block; 
+                font-family: var(--font-logo); 
+                font-size: 3rem; 
+                font-style: italic; 
+                text-transform: uppercase; 
+                letter-spacing: 4px; 
+                color: white;
+                text-shadow: 0 0 20px rgba(0,0,0,0.8);
+            }
+            
+            header { height: 100vh !important; padding-bottom: 10vh !important; background-attachment: scroll !important; }
             .hero-logo-img { width: 300px; margin-top: 0; }
+            
             .img-grid { display: flex; overflow-x: auto; gap: 10px; padding-bottom: 15px; scroll-snap-type: x mandatory; }
             .img-grid img { flex: 0 0 75%; height: 250px; scroll-snap-align: start; }
             .img-grid.foil-img img { height: 350px; flex: 0 0 85%; }
             .perfil-container { text-align: center; }
             .texto-gero { text-align: center; min-width: 100%; }
-        }
-        
-        @media (min-width: 769px) {
-            .parallax-divider h2 { display: none; }
         }
     </style>
 </head>
@@ -166,11 +170,8 @@
 </header>
 
 <main>
-    <div class="parallax-divider divider-1">
-        <h2>Tarifas Clases</h2>
-    </div>
-
     <section id="clases">
+        <h2>Tarifas Clases</h2>
         <p style="text-align:center; margin-top:-10px; margin-bottom:30px; color:#666;">
             Todas las clases incluyen traje neoprene, equipo completo y embarcación.
         </p>
@@ -223,11 +224,10 @@
         </div>
     </section>
 
-    <div class="parallax-divider divider-3">
-        <h2>Alquiler de Equipos</h2>
-    </div>
+    <div class="parallax-divider divider-1"><span>ALQUILER</span></div>
 
     <section id="alquiler">
+        <h2>Alquiler de Equipos</h2>
         <div class="alquiler-card">
             <div class="alquiler-row"><span>1 Hora</span><strong>$75.000</strong></div>
             <div class="alquiler-row"><span>Día Completo</span><strong>$250.000</strong></div>
@@ -236,12 +236,16 @@
         </div>
     </section>
 
+    <div class="parallax-divider divider-3"><span>EQUIPOS</span></div>
+
     <section id="equipos">
         <h2>Nuestros Equipos</h2>
+        
         <div style="text-align: center; margin-bottom: 50px;">
             <div style="font-family: var(--font-logo); font-style: italic; font-size: 2.5rem; text-transform: uppercase;">KT SURFING</div>
             <div style="font-size: 1.2rem; color: #888; letter-spacing: 2px; text-transform: uppercase; margin-top: 5px;">Marca líder a nivel mundial</div>
         </div>
+        
         <h3>TABLAS</h3>
         <span class="item-nombre">KT Drifter 115L 6’3</span>
         <div class="img-grid">
@@ -249,18 +253,21 @@
             <img src="https://i.postimg.cc/V5ykp5dV/drifter-4-highlight-5.webp" alt="KT Drifter 2">
             <img src="https://i.postimg.cc/14x324f7/drifter-4-shape-2x.webp" alt="KT Drifter 3">
         </div>
+
         <span class="item-nombre">KT Ginxu Pro Carbon 2 (46L 4’1 | 62L 5’3)</span>
         <div class="img-grid">
             <img src="https://i.postimg.cc/kGfcgBHT/Whats-App-Image-2026-01-27-at-09-37-58-(1).jpg" alt="KT Ginxu">
-            <img src="https://i.postimg.cc/T1C93psz/Whats-App-Image-2026-02-01-at-08-21-23-a-m.png" alt="KT Ginxu">
+            <img src="https://i.postimg.cc/T1C93psz/Whats-App-Image-2026-01-27-at-09-37-58-(2).jpg" alt="KT Ginxu">
             <img src="https://i.postimg.cc/mk8wgtqG/Whats-App-Image-2026-01-27-at-09-37-58-(3).jpg" alt="KT Ginxu">
         </div>
+
         <span class="item-nombre">KT Wing Drifter Flight 155L 7’3</span>
         <div class="img-grid">
             <img src="https://i.postimg.cc/SR9y6qgF/2023-wing-drifter-flight-product1-2x.jpg" alt="KT Flight 1">
             <img src="https://i.postimg.cc/BbFqTsmG/2023-wing-drifter-flight-product2-2x.jpg" alt="KT Flight 2">
             <img src="https://i.postimg.cc/BbFqTsm0/2023-wing-drifter-flight-product3-2x.jpg" alt="KT Flight 3">
         </div>
+
         <h3>WINGS</h3>
         <span class="item-nombre">KT Wing Astro (3, 4 y 5 mts)</span>
         <div class="img-grid">
@@ -268,6 +275,7 @@
             <img src="https://i.postimg.cc/xCy5cbSt/astro-desc.webp" alt="KT Astro 2">
             <img src="https://i.postimg.cc/50qg6FMg/astro-outline-2x.webp" alt="KT Astro 3">
         </div>
+
         <h3>FOILS</h3>
         <span class="item-nombre">KT NOMAD 700</span>
         <div class="img-grid foil-img">
@@ -275,6 +283,7 @@
             <img src="https://i.postimg.cc/RZKHSxmH/nomad-assembly-2x.webp" alt="KT Nomad 2">
             <img src="https://i.postimg.cc/sg7hjCzQ/nomad-desc.webp" alt="KT Nomad 3">
         </div>
+
         <span class="item-nombre">KT INSTINCT 1450</span>
         <div class="img-grid foil-img">
             <img src="https://i.postimg.cc/g0p6rtkr/instinct-agility-2x.webp" alt="KT Instinct 1">
@@ -283,11 +292,10 @@
         </div>
     </section>
 
-    <div class="parallax-divider divider-2">
-        <h2>Founder</h2>
-    </div>
+    <div class="parallax-divider divider-2"><span>FOUNDER</span></div>
 
     <section id="nosotros">
+        <h2>Founder</h2>
         <div class="perfil-container">
             <img src="https://i.postimg.cc/Y9VG4MvV/Captura-de-pantalla-2026-02-03-a-la(s)-9-46-25-a-m.png" class="foto-gero" alt="Gerónimo Rendón">
             <div class="texto-gero">
@@ -310,22 +318,8 @@
 <script>
     window.addEventListener('scroll', function() {
         const scrollValue = window.scrollY;
-        
-        // Parallax Portada
         const parallaxText = document.getElementById('parallax-text');
         if(parallaxText) parallaxText.style.transform = 'translateY(' + (scrollValue * 0.3) + 'px)';
-
-        // Movimiento suave para los títulos sobre las fotos en celular
-        if(window.innerWidth <= 768) {
-            const dividers = document.querySelectorAll('.parallax-divider h2');
-            dividers.forEach(title => {
-                const rect = title.parentElement.getBoundingClientRect();
-                if(rect.top < window.innerHeight && rect.bottom > 0) {
-                    const move = (rect.top * 0.15);
-                    title.style.transform = `translateY(${move}px)`;
-                }
-            });
-        }
     });
 </script>
 
